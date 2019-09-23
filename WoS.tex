@@ -75,7 +75,7 @@
 \title{
 	World of the Storytellers\\
 	이야기꾼의 세계\\
-	\large version 1.0.6
+	\large version 1.0.7
 }
 
 \author{None(\href{https://www.twitter.com/n0n3x1573n7}{@n0n3x1573n7}, \href{https://www.twitter.com/n0n3x1573n7_WS}{@n0n3x1573n7\_WS})}
@@ -341,6 +341,32 @@
 		\end{itemize}
 	\end{itemize}
 	예를 들어, 12과업을 행한 헤라클레스의 경우 “네메아의 사자를 죽인 자”라는 이야기를 가지고 있다면 다른 사자에 대한 대항 판정에 있어 자동으로 성공할 수 있고, 다른 맹수에 대한 대항 판정에 있어 자동으로 성공하지는 않겠지만 큰 보너스를 받게 될 수 있습니다. 만약 호랑이와 같이 사자와 유사한 맹수라면 +4 등 큰 보너스를, 악어와 같이 조금 거리가 있는 맹수라면 +2 등 작은 보너스를 받게 될 것입니다.
+	
+	\section*{이야기 효과의 우선순위}
+	이따끔씩 여러 이야기가 한번에 적용되어야 할 때가 있을 수 있습니다. 예를 들어, 어떤 사건으로 인해 한 사람의 공포증의 트리거가 발동됨과 동시에 다른 사람의 패시브 능력의 조건이 충족된다거나 하는 식으로 말이죠. 이 경우에는, 다음과 같은 순서로 이야기의 우선순위가 정해집니다:
+	\begin{enumerate}
+		\item 이야기꾼이 들어가있는 세계 출신의 이야기
+		\item 개연성 비용의 절대값이 높은 이야기
+			\begin{itemize}
+				\item 단 양수인 이야기와 음수인 이야기가 있다면, 양수인 이야기가 우선됨
+			\end{itemize}
+		\item 해당 이야기와 가장 관련 있는 이야기꾼의 스탯이 높은 이야기
+			\begin{itemize}
+				\item 기본적으로 스탯을 올려주는 이야기의 경우 해당 스탯, 또는 그 중 가장 높은 스탯
+				\item 아닌 경우라 할지라도 이야기와 관련있는 스탯이 있다면 해당 스탯
+				\item 전혀 없다고 생각된다면 이야기꾼의 의지 스탯을 이용함.
+			\end{itemize}
+		\item 위 모두가 동률이라면:
+		\begin{itemize}
+			\item 전투 상황이 아닐때, 
+			\begin{itemize}
+				\item 서로 다른 두 이야기꾼의 이야기라면 주사위를 굴려 결정.
+				\item 한 이야기꾼의 이야기라면 이야기꾼의 마음대로 결정.
+			\end{itemize}
+			\item 전투 상황이라면 더 빠르게 자신의 턴이 돌아오는 이야기꾼의 이야기부터.
+				\subitem 현재 턴인 이야기꾼 $\rightarrow$ 다음 턴인 이야기꾼 $\rightarrow$ ...
+		\end{itemize}
+		\end{enumerate}
 	
 	\section*{(선택 규칙)"행운"의 힘과 "불운"의 힘}
 	다음 중 전부 또는 일부를 선택하여 적용시킬 수 있습니다:
@@ -781,13 +807,18 @@
 		
 		\subsection*{2019. 09. 12. Version 1.0.5}
 		\begin{itemize}
-			\item 이야기의 보상에 관한 내용을 능력 가이드라인 챕터에 추가.
+			\item 이야기의 보상에 관한 내용을 능력 가이드라인 챕터에 추가
 		\end{itemize}
 		
 		\subsection*{2019. 09. 15. Version 1.0.6}
 		\begin{itemize}
 			\item 이야기꾼의 세계에 대한 짧은 소개를 서문으로 이동
 			\item 이야기꾼의 세계 룰의 목적에 대한 서술을 에필로그에 추가
+		\end{itemize}
+		
+		\subsection*{2019. 09. 23 Version 1.0.7}
+		\begin{itemize}
+			\item 이야기의 효과가 동시에 적용될 때의 우선순위에 대한 내용 추가
 		\end{itemize}
 		
 	
