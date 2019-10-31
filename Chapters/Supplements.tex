@@ -1,7 +1,9 @@
 \documentclass{report}
 
 \begin{document}
+	\setcounter{parttocdepth}{2}
 	\parttoc
+	\setcounter{parttocdepth}{1}
 	
 	\chapter{도입}
 		\input{./Chapters/Supplements/도입.tex}
@@ -14,4 +16,7 @@
 	
 	\chapter{종족}
 		\input{./Chapters/Supplements/종족.tex}
+	
+	\chapter{직업/클래스}
+		\input{./Chapters/Supplements/직업_클래스.tex}
 \end{document}
