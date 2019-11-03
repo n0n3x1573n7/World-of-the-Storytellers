@@ -38,6 +38,14 @@
 \usepackage{mdframed}
 \usepackage{etoolbox}
 
+\usepackage[
+type={CC},
+modifier={by-nc-sa},
+version={4.0},
+]{doclicense}
+
+\usepackage[yyyymmdd]{datetime}
+
 \usepackage{makecell}
 
 \usepackage{minitoc}
@@ -95,7 +103,8 @@
 \title{
 	World of the Storytellers\\
 	이야기꾼의 세계\\
-	\large version 1.2.0
+	\large version 1.2.1\\
+	Last Update: \today \\
 }
 
 \author{None(\href{https://www.twitter.com/n0n3x1573n7}{@n0n3x1573n7}, \href{https://www.twitter.com/n0n3x1573n7_WS}{@n0n3x1573n7\_WS})}
@@ -105,8 +114,17 @@
 \begin{document}
 	%original: https://docs.google.com/document/d/1CewodUdP8zI3f81ktz6iiZYG4b1cFzARG2g1HFeswzg/edit
 	\maketitle
+
+	\vspace*{\fill}
+	{\doclicenseThis}
 	
 	\setcounter{tocdepth}{-1}
+	
+\iffalse
+	\chapter*{서론}
+		\input{./Chapters/서론.tex}
+\fi
+	
 	\tableofcontents
 	
 	\part{룰북}
@@ -119,10 +137,10 @@
 		\input{./Chapters/Supplements.tex}
 	
 	\part{정리}
-		\chapter{FAQ}
+		\chapter*{FAQ}
 			\input{./Chapters/FAQ.tex}
 	
-		\chapter{패치 노트}
+		\chapter*{패치 노트}
 			\input{./Chapters/패치노트.tex}
 	
 \end{document}
