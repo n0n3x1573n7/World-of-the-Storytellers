@@ -1,4 +1,5 @@
 \documentclass[12pt]{report}
+%Use \documentclass[12pt]{book} to printout and make it into a book
 \renewcommand{\numberline}[1]{#1~}
 
 %\usepackage{kotex}
@@ -95,6 +96,8 @@ version={4.0},
 }
 {\par\medskip}
 
+\newcommand{\cost}[1]{\textbf{개연성 코스트}: #1}
+
 \newfontfamily\nanumpen{Nanum Pen Script}
 \newcommand{\world}[1]{{\nanumpen \large #1 \par}\bigskip}
 
@@ -142,5 +145,9 @@ version={4.0},
 	
 		\chapter*{패치 노트}
 			\input{./Chapters/패치노트.tex}
+	
+	\newpage
+	\vspace*{\fill}
+	{\doclicenseThis}
 	
 \end{document}
