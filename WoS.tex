@@ -5,8 +5,16 @@
 %\usepackage{kotex}
 \usepackage{CJKutf8}
 
-\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[OT1, T2A]{fontenc}
+
+\usepackage{imakeidx}
+\makeindex[columns=2, title={이야기 찾아보기}]
+\let\oldindex\index
+\renewcommand*{\index}[1]{\oldindex{#1}\ignorespaces}
+\makeatletter
+\def\indexspace{}
+\makeatother
 
 \usepackage{fontspec}
 \setmainfont[ItalicFont={*},ItalicFeatures={FakeSlant=.167}]{NanumBarunGothic}
@@ -63,7 +71,30 @@ version={4.0},
 
 \renewcommand\mtcgapbeforeheads{0pt}
 
+%environment for normal stories
 \newenvironment{story}[2]
+{ \medskip \par
+	\noindent
+	\begin{minipage}{\textwidth}
+		\begin{center}
+			{\large \textbf{[#1\index{#1}]}}\\[1ex]
+			\begin{tabular}{|p{\textwidth}|}
+				\hline
+				\textbf{속성}: #2
+				\\
+				\hline
+			}
+			{ 
+				\\\hline
+			\end{tabular}
+		\end{center}
+	\end{minipage}
+	\par
+	\medskip
+}
+
+%environment for spoiling stories(i.e. scenarios)
+\newenvironment{spoiler}[2]
 { \medskip \par
 	\noindent
 	\begin{minipage}{\textwidth}
@@ -106,7 +137,7 @@ version={4.0},
 \title{
 	World of the Storytellers\\
 	이야기꾼의 세계\\
-	\large version 1.2.1\\
+	\large version 1.2.2\\
 	Last Update: \today \\
 }
 
@@ -142,9 +173,11 @@ version={4.0},
 	\part{정리}
 		\chapter*{FAQ}
 			\input{./Chapters/FAQ.tex}
-	
+		
 		\chapter*{패치 노트}
 			\input{./Chapters/패치노트.tex}
+		
+			\printindex
 	
 	\newpage
 	\vspace*{\fill}
