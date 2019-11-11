@@ -187,7 +187,7 @@ pythontex-files-*/
 *.lod
 
 # xindy
-#*.xdy
+*.xdy
 
 # xypic precompiled matrices
 *.xyc

@@ -1,5 +1,0 @@
-;; delim_0 <string>         " "
-;; delim_1 <string>         " "
-;; delim_2 <string>         " "
-
-(markup-locclass-list :open " " :sep " ") 
