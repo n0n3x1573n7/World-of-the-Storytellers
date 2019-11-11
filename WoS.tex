@@ -8,8 +8,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[OT1, T2A]{fontenc}
 
-\usepackage{imakeidx}
-\makeindex[columns=2, title={이야기 찾아보기}]
+\usepackage[texindy]{imakeidx}
+\makeindex[columns=2, title={이야기 찾아보기}, options=-M makeidx]
 \let\oldindex\index
 \renewcommand*{\index}[1]{\oldindex{#1}\ignorespaces}
 \makeatletter
