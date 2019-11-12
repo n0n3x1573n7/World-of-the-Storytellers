@@ -1,7 +1,7 @@
 \documentclass{report}
 
 \begin{document}
-	\begin{story}{아홉개의 꼬리}{[종족: 구미호]}
+	\begin{story}[kitsune:nine-tail]{아홉개의 꼬리}{[종족: 구미호]}
 		\textit{아홉 개의 꼬리를 가진 여우 요괴다.}
 		
 		타인에 대한 정신적 공격 판정에 +2를 받는다. 이는 유혹, 도발 등을 포함한다.
@@ -17,8 +17,8 @@
 		\cost{20}
 	\end{story}
 	
-	\begin{story}{변신: 구미호}{[종족: 구미호]}
-		외관을 원하는 대로 바꿀 수 있다. 단, [아홉 개의 꼬리]를 모두 숨기는 것은 불가능하다.
+	\begin{story}[kitsune:transform]{변신: 구미호}{[종족: 구미호]}
+		외관을 원하는 대로 바꿀 수 있다. 단, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}를 모두 숨기는 것은 불가능하다.
 		
 		외관이 바뀌면, 은신과 기만에 +2를 받는다.
 		
@@ -26,7 +26,7 @@
 	\end{story}
 	
 	\begin{story}{내 꼬리에 손 대지 마}{[종족: 구미호][광기]}
-		\textbf{제약(광기)}: [변신] 상태에서 상대에게 꼬리를 들키면 [변신]으로 인한 스탯 보너스를 모두 잃고, 들킨 상대로부터 숨기 위한 행동만을 할 수 있다.
+		\textbf{제약(광기)}: \storyref{kitsune:transform}{변신: 구미호} 상태에서 상대에게 꼬리를 들키면 \storyref{kitsune:transform}{변신: 구미호}로 인한 스탯 보너스를 모두 잃고, 들킨 상대로부터 숨기 위한 행동만을 할 수 있다.
 		
 		\smallskip
 		

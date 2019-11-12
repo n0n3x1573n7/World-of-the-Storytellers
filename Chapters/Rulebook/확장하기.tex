@@ -17,10 +17,10 @@
 		
 		새로운 주요 등장인물(이야기꾼 포함)이 등장할 때 마다, 해당 인물에 대한 끌림 상태 2/10을 가진다.
 		
-		각 이야기꾼은 동성간 행위, 기도, 고해성사의 세 가지 행위 이야기를 사용할 수 있다.
+		각 이야기꾼은 \storyref{mission-school:action}{동성간 행위}, \storyref{mission-school:prayer}{기도}, \storyref{mission-school:confession}{고해성사}의 세 가지 행위 이야기를 사용할 수 있다.
 	\end{story}
 	
-	\begin{story}{동성간 행위}{[행위]}
+	\begin{story}[mission-school:action]{동성간 행위}{[행위]}
 		죄책감이 10인 경우 해당 행위를 할 수 없다.
 		
 		어떤 인물과 "동성간 행위"로 분류될 수 있는 행위를 하면 다음이 일어난다:
@@ -34,7 +34,7 @@
 		\end{enumerate}
 	\end{story}
 	
-	\begin{story}{기도}{[행위]}
+	\begin{story}[mission-school:prayer]{기도}{[행위]}
 		혼자 있을때, 또는 조용한 곳에 있을때, 또는 성당 등에 있을 때 할 수 있다.
 		
 		죄책감이 1 감소한다.
@@ -42,7 +42,7 @@
 		4df를 굴려 의지를 더한 값이 0 이상이라면 죄책감이 1 추가로 감소한다.
 	\end{story}
 	
-	\begin{story}{고해성사}{[행위]}
+	\begin{story}[mission-school:confession]{고해성사}{[행위]}
 		성당에서 4df를 굴려 2 이상의 수가 나오거나, 신부가 있음이 확실하다면 고해성사를 할 수 있다.
 		
 		죄책감이 2 감소한다.
