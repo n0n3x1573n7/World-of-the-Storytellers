@@ -9,7 +9,8 @@
 \usepackage[OT1, T2A]{fontenc}
 
 \usepackage{imakeidx}
-\makeindex[columns=2, title={이야기 찾아보기}]
+\indexsetup{othercode=\footnotesize}
+\makeindex[columns=3, title={이야기 찾아보기}]
 \let\oldindex\index
 \renewcommand*{\index}[1]{\oldindex{#1}\ignorespaces}
 \makeatletter
