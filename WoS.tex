@@ -35,11 +35,13 @@
 \usepackage{amssymb}
 %\usepackage{relsize}
 \usepackage{centernot}
-\usepackage[top=3cm, left=3cm, right=3cm, bottom=2cm]{geometry}
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
 \usepackage{titling}
 %\usepackage{lipsum}
 \usepackage{standalone}
 \usepackage{enumitem}
+\setlist{topsep=0pt,itemsep=0pt,parsep=0pt,before=\vspace{1mm},after=\vspace{1mm}}%{nosep,topsep=0pt,after=\vspace{0pt}}
+
 \usepackage{multirow}
 \usepackage{ulem}
 \usepackage{bm}
@@ -72,7 +74,7 @@ version={4.0},
 
 \renewcommand\mtcgapbeforeheads{0pt}
 
-%environment for normal stories
+%environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \medskip \par
 	\noindent
@@ -94,7 +96,7 @@ version={4.0},
 	\medskip
 }
 
-%environment for spoiling stories(i.e. scenarios)
+%environment for spoiling stories(i.e. scenarios), does not appear on index
 \newenvironment{spoiler}[3][]
 { \medskip \par
 	\noindent
@@ -136,6 +138,10 @@ version={4.0},
 \newcommand{\world}[1]{{\nanumpen \large #1 \par}\bigskip}
 
 \setlength\parindent{0pt}
+
+\renewenvironment{center}
+{\smallskip\parskip=0pt\par\nopagebreak\centering}
+{\par\noindent\ignorespacesafterend\smallskip}
 
 \title{
 	World of the Storytellers\\

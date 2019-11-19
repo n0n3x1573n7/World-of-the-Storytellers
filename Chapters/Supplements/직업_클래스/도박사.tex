@@ -1,0 +1,65 @@
+\documentclass{report}
+
+\begin{document}
+	도박에 죽고 도박에 사는 사람들입니다.
+	
+	\begin{story}[dice_blackjack]{다이스 블랙잭}{[클래스: 도박사]}
+		매 턴 한번, 같은 구역에 있는 사람을 하나 지목해, \storyref{dice_blackjack}{다이스 블랙잭}을 진행할 수 있다:
+		\begin{enumerate}
+			\setlength\itemsep{0.2em}
+			\item 각자, 2d6을 굴린다.
+			\item 도박사부터 돌아가며 1d6을 추가로 굴릴 수 있다.
+			\item 두 명이 모두 주사위를 굴리지 않겠다고 선언하면 게임을 종료한다.
+			\item 주사위 결과의 총합이 정확히 12라면, \textcolor{red}{[스페셜]}으로 취급한다.
+			\item 주사위 결과의 총합이 12를 넘겼다면, \textcolor{blue}{[버스트]}로 취급하여 다음이 일어난다:
+			\begin{itemize}
+				\item 상대의 수가 6 이하라면 상대보다 1 낮은 수로 취급하고, 즉시 게임을 종료한다.
+				\item 상대의 수가 7 이상이라면 6으로 취급하고, 즉시 게임을 종료한다.
+			\end{itemize}
+		\end{enumerate}
+		게임 종료 시점에 두 사람의 숫자가 같다면(둘 다 스페셜인 경우 포함) 승패 없이 종료된다. 그렇지 않다면, 더 숫자가 높은 사람이 승자, 낮은 사람이 패자가 된다. 승자는 물리/정신피해 중 하나를 선택하여 패자에게 다음 피해량 계산법에 따라 피해를 준다:
+		\begin{itemize}
+			\item 승자가 \textcolor{red}{[스페셜]}이 아니라면, 두 수의 차이만큼의 피해를 준다.
+			\item 승자가 \textcolor{red}{[스페셜]}이라면, 두 수의 차이만큼에 1을 더한 만큼의 피해를 준다.
+			\item 패자가 \textcolor{blue}{[버스트]}라면, 위의 피해량의 두배에 해당하는 피해를 물리 또는 정신에 한번에 주거나, \textcolor{green}{[스플릿]} 하여 물리/정신에 각각 나누어 줄 수 있다.
+		\end{itemize}
+		
+		\cost{20\footnote{주사위 운에 따라, 자신도 상대도 피해를 받을 수 있는 능력이기 때문에 일반적인 활용형 능력으로 취급됩니다.}}
+	\end{story}
+	
+	\begin{story}{도박 중독}{[클래스: 도박사][중독]}
+		\textbf{제약(중독)}: 다른 이에게 피해를 가하고 싶을 때 \storyref{dice_blackjack}{다이스 블랙잭}을 할 수 있다면, 반드시 \storyref{dice_blackjack}{다이스 블랙잭}을 통해서만 피해를 줄 수 있다.
+		
+		\smallskip
+		
+		\textbf{스탯 -}: 근력, 의지, 자본, 인맥
+		
+		\cost{-30}
+	\end{story}
+	
+	\begin{story}{올인}{[클래스: 도박사][집착]}
+		\storyref{dice_blackjack}{다이스 블랙잭}의 결과가 \textcolor{red}{[스페셜]}일 때, 즉시 [멍해짐: 1턴] 상태를 주는 것으로 게임으로 인한 피해량 판정 없이 게임을 종료할 수 있다. [멍해짐] 상태를 받은 상대는 다음 자신의 턴에 아무 행동도 할 수 없다.
+		
+		\smallskip
+		
+		\textbf{제약(집착)}: \storyref{dice_blackjack}{다이스 블랙잭}의 결과가 \textcolor{red}{[스페셜]}이라도, \textcolor{green}{[스플릿]} 할 수 없다.
+		
+		\cost{10}
+	\end{story}
+	
+	\begin{story}{밑장빼기}{[클래스: 도박사][기피]}
+		전투 씬에서, 세 라운드에 한 번, \storyref{dice_blackjack}{다이스 블랙잭}을 할때 자신이 \textcolor{blue}{[버스트]}가 난 경우, \textcolor{blue}{[버스트]}를 낸 주사위 굴림을 취소할 수 있다.
+		
+		\smallskip
+		
+		비전투 씬에서, 한 씬에 한 번, 판정을 할 때에 다시 판정을 해 원래 결과와 새 결과 중 원하는 결과를 선택할 수 있다.
+		
+		\smallskip
+		
+		\textbf{트리거(기피)}: \storyref{dice_blackjack}{다이스 블랙잭}을 할때, 자신이 주사위를 더 굴리지 않겠다고 선언하지 않았고, 상대가 \textcolor{red}{[스페셜]}이다.
+		
+		\textbf{효과}: 반드시 10 이상이 나올때까지 주사위를 추가로 굴려야 한다.
+		
+		\cost{10\footnote{전투 씬 또는 비전투 씬에서만 사용할 수 있는 능력이 있기 때문에 두 능력의 코스트(각각 10) 중 높은 쪽을 적용시켰습니다.}}
+	\end{story}
+\end{document}
