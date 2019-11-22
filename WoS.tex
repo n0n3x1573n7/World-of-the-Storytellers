@@ -118,7 +118,7 @@ version={4.0},
 	\medskip
 }
 
-\newcommand{\storyref}[2]{\hyperlink{#1}{[#2]}}
+\newcommand{\storyref}[2]{\hyperlink{#1}{\textnormal{[#2]}}}
 
 \newcounter{qnactr}
 
@@ -132,7 +132,9 @@ version={4.0},
 }
 {\par\medskip}
 
-\newcommand{\cost}[1]{\smallskip \textbf{개연성 코스트}: #1}
+\newcommand{\cost}[1]{\medskip \textbf{개연성 코스트}: #1}
+
+\newcommand{\pre}[1]{\textbf{전제 조건}: \textit{#1} \medskip}
 
 \newfontfamily\nanumpen{Nanum Pen Script}
 \newcommand{\world}[1]{{\nanumpen \large #1 \par}\bigskip}

@@ -28,6 +28,8 @@
 	\end{story}
 	
 	\begin{story}{도박 중독}{[클래스: 도박사][중독]}
+		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+		
 		\textbf{제약(중독)}: 다른 이에게 피해를 가하고 싶을 때 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 할 수 있다면, 반드시 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 통해서만 피해를 줄 수 있다.
 		
 		\smallskip
@@ -38,6 +40,8 @@
 	\end{story}
 	
 	\begin{story}[gambler:all-in]{올인}{[클래스: 도박사][집착]}
+		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+		
 		\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 결과가 \textcolor{red}{[스페셜]}일 때, 즉시 [멍해짐: 1턴] 상태를 주는 것으로 게임으로 인한 피해량 판정 없이 게임을 종료할 수 있다. [멍해짐] 상태를 받은 상대는 다음 자신의 턴에 아무 행동도 할 수 없다.
 		
 		\smallskip
@@ -48,6 +52,8 @@
 	\end{story}
 	
 	\begin{story}[gambler:cheating]{밑장빼기}{[클래스: 도박사][기피]}
+		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+		
 		전투 씬에서, 세 라운드에 한 번, \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 할때 자신이 \textcolor{blue}{[버스트]}가 난 경우, \textcolor{blue}{[버스트]}를 낸 주사위 굴림을 취소할 수 있다.
 		
 		\smallskip
@@ -66,6 +72,8 @@
 	\subsection{도박사 심화 이야기}
 	
 	\begin{story}{위협적인 근육}{[클래스: 도박사][심화]}
+		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+		
 		\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 진행에서, 숫자가 같을 때마다 상대의 숫자를 1 낮춘다.
 		
 		\smallskip
@@ -76,6 +84,8 @@
 	\end{story}
 	
 	\begin{story}{참을성}{[클래스: 도박사][심화]}
+		\pre{\storyref{gambler:cheating}{밑장빼기}}
+		
 		\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다.
 		
 		\smallskip
@@ -86,6 +96,8 @@
 	\end{story}
 	
 	\begin{story}{성공적인 도박사}{[클래스: 도박사][심화]}
+		\pre{\storyref{gambler:all-in}{올인}}
+		
 		\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다.
 		
 		\smallskip
