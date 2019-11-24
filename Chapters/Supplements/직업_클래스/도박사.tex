@@ -74,7 +74,7 @@
 	\begin{story}{위협적인 근육}{[클래스: 도박사][심화]}
 		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 		
-		\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 진행에서, 숫자가 같을 때마다 상대의 숫자를 1 낮춘다.
+		\storyref{gambler:dice_blackjack}{다이스 블랙잭}에서, 상대가 \textcolor{blue}{[버스트]}인 경우, 해당 수치가 12에서 넘어선 만큼 추가로 피해를 준다.
 		
 		\smallskip
 		
@@ -86,7 +86,7 @@
 	\begin{story}{참을성}{[클래스: 도박사][심화]}
 		\pre{\storyref{gambler:cheating}{밑장빼기}}
 		
-		\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다.
+		\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다. 즉, 상대가 \textcolor{red}{[스페셜]}이고 자신이 10 미만이며 주사위를 굴리지 않겠다고 선언하기 전이라 할지라도 주사위를 더 이상 굴리지 않아도 된다.
 		
 		\smallskip
 		
@@ -98,7 +98,7 @@
 	\begin{story}{성공적인 도박사}{[클래스: 도박사][심화]}
 		\pre{\storyref{gambler:all-in}{올인}}
 		
-		\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다.
+		\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다. 즉, 게임 종료시 동점일 때에도 상대에게 [멍해짐: 1턴]을 줄 수 있다.
 		
 		\smallskip
 		
