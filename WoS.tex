@@ -86,9 +86,10 @@ version={4.0},
 				\textbf{속성}: #3
 				\index{#2}
 				\\\hline
+				\ignorespaces \unskip
 			}
 			{ 
-				\unskip
+				%\unskip
 				\\\hline
 			\end{tabular}
 		\end{center}
@@ -109,9 +110,10 @@ version={4.0},
 				\textbf{속성}: #3
 				\\
 				\hline
+				\unskip
 			}
 			{ 
-				\unskip
+				%\unskip
 				\\\hline
 			\end{tabular}
 		\end{center}
@@ -134,45 +136,45 @@ version={4.0},
 }
 {\par\smallbreak}
 
-\newcommand{\cost}[1]{\ignorespaces\textbf{개연성 코스트}: #1}
+\newcommand{\pre}[1]{\unskip \ignorespaces\textbf{필요 조건}: \textit{#1}\smallskip}
 
-\newcommand{\pre}[1]{\ignorespaces\textbf{필요 조건}: \textit{#1}\smallbreak}
+\newcommand{\cost}[1]{\unskip \ignorespaces\textbf{개연성 코스트}: #1}
 
 \newcommand{\limitedtrauma}[2]
 {
-	\ignorespaces
+	\unskip \ignorespaces
 	\textbf{제약(#1)}: #2
-	\smallbreak
+	\smallskip
 }
 
 \newcommand{\triggertrauma}[3]
 {
-	\ignorespaces
+	\unskip \ignorespaces
 	\textbf{트리거(#1)}: #2
 	
 	\textbf{효과}: #3
-	\smallbreak
+	\smallskip
 }
 
 \newcommand{\statchange}[2]
 {
-	\ignorespaces
+	\unskip \ignorespaces
 	\textbf{스탯 #1}: #2
-	\smallbreak
+	\smallskip
 }
 
 \newcommand{\flavour}[1]
 {
-	\ignorespaces
+	\unskip \ignorespaces
 	\textit{#1}
-	\smallbreak
+	\smallskip
 }
 
 \newcommand{\entry}[1]
 {
-	\ignorespaces
+	\unskip \ignorespaces
 	#1
-	\smallbreak
+	\smallskip
 }
 
 \newfontfamily\nanumpen{Nanum Pen Script}
