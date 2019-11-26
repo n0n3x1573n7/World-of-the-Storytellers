@@ -14,16 +14,28 @@
 	\begin{story}{삐그덕거리는 관절}{[종족: 스켈레톤][공포]}
 		\pre{종족: 스켈레톤}
 		
-		\triggertrauma{공포}{누군가가 자신이 스켈레톤임을 처음으로 눈치챈다.}{\textbf{효과}: 해당 인물은 하루동안 기피증 \storyref{skeleton:living-dead}{산송장}을 받는다.}
+		\triggertrauma{공포}{누군가가 자신이 스켈레톤임을 처음으로 눈치챈다.}{해당 인물은 하루동안 기피증 \storyref{skeleton:living-dead}{산송장}을 받는다.
 		
-		\statchange{-}{근력[2], 민첩[2]}
+		\begin{story}[skeleton:living-dead]{산송장}{[기피: 스켈레톤]}
+			\limitedtrauma{기피}{이 공포증을 준 대상에게 호의적으로 행동할 수 없다.}
+			
+			\cost{0}
+		\end{story}}
 		
-		\cost{-30}
+		\statchange{-}{근력[2], 민첩[2], 은신}
+		
+		\cost{-35}
 	\end{story}
 	
-	\begin{story}[skeleton:living-dead]{산송장}{[기피: 스켈레톤]}
-		\limitedtrauma{기피}{이 공포증을 준 대상에게 호의적으로 행동할 수 없다.}
+	\begin{story}{분리 가능한 뼈}{[종족: 스켈레톤]}
+		\pre{종족: 스켈레톤}
 		
-		\cost{0}
+		\entry{뼈를 분리/조합할 수 있다. 특히, 다음이 가능하다:
+			\begin{itemize}
+				\item 다른 뼈를 구할 수 있다면, 자신의 몸에 연결해 자신의 것 처럼 사용할 수 있다. 특히, 이로 인해 추가 이야기나 스탯을 받게 될 수 있다.\footnote{예를 들어, 공룡 뼈를 연결했다면 근력을 추가로 받을 수 있고, 새의 날개뼈를 팔 대신 연결했다면 비행 능력을 가진 이야기 등을 얻게 될 수 있습니다.}
+				\item 신체의 일부를 분리해도 자신의 의지대로 움직일 수 있다.
+		\end{itemize}}
+		
+		\cost{20}
 	\end{story}
 \end{document}
