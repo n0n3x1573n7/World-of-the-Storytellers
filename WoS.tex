@@ -76,7 +76,7 @@ version={4.0},
 
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
-{ \ignorespaces \medskip \par
+{ \ignorespaces \smallbreak \par
 	\noindent
 	\begin{minipage}{\textwidth}
 		\begin{center}
@@ -88,17 +88,18 @@ version={4.0},
 				\\\hline
 			}
 			{ 
+				\unskip
 				\\\hline
 			\end{tabular}
 		\end{center}
 	\end{minipage}
 	\par
-	\medskip
+	\smallbreak
 }
 
 %environment for spoiling stories(i.e. scenarios), does not appear on index
 \newenvironment{spoiler}[3][]
-{ \ignorespaces \medskip \par
+{ \ignorespaces \smallbreak \par
 	\noindent
 	\begin{minipage}{\textwidth}
 		\begin{center}
@@ -110,12 +111,13 @@ version={4.0},
 				\hline
 			}
 			{ 
+				\unskip
 				\\\hline
 			\end{tabular}
 		\end{center}
 	\end{minipage}
 	\par
-	\medskip
+	\smallbreak
 }
 
 \newcommand{\storyref}[2]{\hyperlink{#1}{\textnormal{[#2]}}}
@@ -125,16 +127,53 @@ version={4.0},
 \newenvironment{faq}[1]
 {
 		\refstepcounter{qnactr}
-		\par\medskip
+		\par\smallbreak
 		\textbf{\large Q\theqnactr. #1}
 		\newline\rmfamily
 		A\theqnactr.
 }
-{\par\medskip}
+{\par\smallbreak}
 
-\newcommand{\cost}[1]{\medskip \textbf{개연성 코스트}: #1}
+\newcommand{\cost}[1]{\ignorespaces\textbf{개연성 코스트}: #1}
 
-\newcommand{\pre}[1]{\textbf{필요 조건}: \textit{#1} \medskip}
+\newcommand{\pre}[1]{\ignorespaces\textbf{필요 조건}: \textit{#1}\smallbreak}
+
+\newcommand{\limitedtrauma}[2]
+{
+	\ignorespaces
+	\textbf{제약(#1)}: #2
+	\smallbreak
+}
+
+\newcommand{\triggertrauma}[3]
+{
+	\ignorespaces
+	\textbf{트리거(#1)}: #2
+	
+	\textbf{효과}: #3
+	\smallbreak
+}
+
+\newcommand{\statchange}[2]
+{
+	\ignorespaces
+	\textbf{스탯 #1}: #2
+	\smallbreak
+}
+
+\newcommand{\flavour}[1]
+{
+	\ignorespaces
+	\textit{#1}
+	\smallbreak
+}
+
+\newcommand{\entry}[1]
+{
+	\ignorespaces
+	#1
+	\smallbreak
+}
 
 \newfontfamily\nanumpen{Nanum Pen Script}
 \newcommand{\world}[1]{{\nanumpen \large #1 \par}\bigskip}

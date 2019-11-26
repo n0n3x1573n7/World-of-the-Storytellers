@@ -6,15 +6,13 @@
 	\begin{story}{공허한 첫인상}{[종족: 형태 없는 자][광기]ⓣ}
 		\pre{종족: 형태 없는 자}
 		
-		\textbf{트리거(광기)}: 누군가가 처음으로 형태 없는 자의 본 모습(특히, 후드나 붕대 등으로 감지 않아 형태가 드러나지 않은 머리)을 본다.
-		
-		\textbf{효과}: 해당 인물은 24시간동안 공포증 \storyref{formless-spawn:no-head}{머리가... 없어?}를 받는다.
+		\triggertrauma{광기}{누군가가 처음으로 형태 없는 자의 본 모습(특히, 후드나 붕대 등으로 감지 않아 형태가 드러나지 않은 머리)을 본다.}{해당 인물은 24시간동안 공포증 \storyref{formless-spawn:no-head}{머리가... 없어?}를 받는다.}
 		
 		\cost{-20}
 	\end{story}
 	
 	\begin{story}[formless-spawn:no-head]{머리가... 없어?}{[공포: 형태 없는 자]}
-		\textbf{제약(공포)}: 어떤 대상이 형태 없는 자 임을 인식한다면, 그를 반드시 공격해야 한다. 특히, 이 공포증을 준 대상을 최우선으로 선택하여 공격해야 한다.
+		\limitedtrauma{공포}{어떤 대상이 형태 없는 자 임을 인식한다면, 그를 반드시 공격해야 한다. 특히, 이 공포증을 준 대상을 최우선으로 선택하여 공격해야 한다.}
 		
 		\cost{0}
 	\end{story}
@@ -22,7 +20,7 @@
 	\begin{story}{존재와 비존재 사이의 형태}{[종족: 형태 없는 자]ⓣ}
 		\pre{종족: 형태 없는 자}
 		
-		대상을 지정하지 않는 형태의 공격에 대해 회피에 은신 스탯을 추가 보정치로 받는다.
+		\entry{대상을 지정하지 않는 형태의 공격에 대해 회피에 은신 스탯을 추가 보정치로 받는다.}
 		
 		\cost{20}
 	\end{story}
@@ -30,7 +28,7 @@
 	\begin{story}[formless-spawn:atonement-with-darkness]{암흑과의 일체화}{[종족: 형태 없는 자]ⓣ}
 		\pre{종족: 형태 없는 자}
 		
-		빛이 존재하지 않을 때, 아직 자신을 인식하지 못한 이로부터 숨기로 결정했다면 자동으로 숨는 데에 성공한다.
+		\entry{빛이 존재하지 않을 때, 아직 자신을 인식하지 못한 이로부터 숨기로 결정했다면 자동으로 숨는 데에 성공한다.}
 		
 		\cost{20}
 	\end{story}
@@ -40,7 +38,7 @@
 	\begin{story}{완벽한 은신}{[종족: 형태 없는 자][심화]}
 		\pre{\storyref{formless-spawn:atonement-with-darkness}{암흑과의 일체화}}
 		
-		\storyref{formless-spawn:atonement-with-darkness}{암흑과의 일체화}가 빛이 존재할 때에도 적용된다.
+		\entry{\storyref{formless-spawn:atonement-with-darkness}{암흑과의 일체화}가 빛이 존재할 때에도 적용된다.}
 		
 		\cost{20}
 	\end{story}

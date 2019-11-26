@@ -2,13 +2,11 @@
 
 \begin{document}
 	\begin{story}[kitsune:nine-tail]{아홉개의 꼬리}{[종족: 구미호]}
-		\textit{아홉 개의 꼬리를 가진 여우 요괴다.}
-		
 		\pre{종족: 구미호}
 		
-		타인에 대한 정신적 공격 판정에 +2를 받는다. 이는 유혹, 도발 등을 포함한다.
+		\flavour{아홉 개의 꼬리를 가진 여우 요괴다.}
 		
-		심리적 공격 판정에 3 이상 차이로 성공하면, [정신지배: (구미호 이름): 1턴] 상태를 부여한다. 다음 턴에 상대는 구미호의 명령을 따르나, 이로 인해 구미호 또는 상대 본인에게 피해를 주게 할 수는 없다.
+		\entry{타인에 대한 정신적 공격 판정에 +2를 받는다. 이는 유혹, 도발 등을 포함한다. 이러한 심리적 공격 판정에 3 이상 차이로 성공하면, [정신지배: (구미호 이름): 1턴] 상태를 부여하여, 다음 턴에 상대가 구미호의 명령을 따르도록 할 수 있다. 명령으로 인해 구미호 또는 상대 본인에게 피해를 주게 할 수는 없다.}
 		
 		\cost{20}
 	\end{story}
@@ -16,9 +14,7 @@
 	\begin{story}[kitsune:transform]{변신: 구미호}{[종족: 구미호]}
 		\pre{\storyref{kitsune:nine-tail}{아홉 개의 꼬리}}
 		
-		외관을 원하는 대로 바꿀 수 있다. 단, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}를 모두 숨기는 것은 불가능하다.
-		
-		외관이 바뀌면, 은신과 기만에 +2를 받는다.
+		\entry{외관을 원하는 대로 바꾸어, 은신과 기만에 +2를 받을 수 있다. 단, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}를 모두 숨기는 것은 불가능하다.}
 		
 		\cost{20}
 	\end{story}
@@ -26,11 +22,9 @@
 	\begin{story}{내 꼬리에 손 대지 마}{[종족: 구미호][광기]}
 		\pre{\storyref{kitsune:transform}{변신: 구미호}, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}}
 		
-		\textbf{제약(광기)}: \storyref{kitsune:transform}{변신: 구미호} 상태에서 상대에게 꼬리를 들키면 \storyref{kitsune:transform}{변신: 구미호}로 인한 스탯 보너스를 모두 잃고, 들킨 상대로부터 숨기 위한 행동만을 할 수 있다.
+		\triggertrauma{광기}{\storyref{kitsune:transform}{변신: 구미호} 상태에서 상대에게 꼬리를 들킨다.}{ \storyref{kitsune:transform}{변신: 구미호}로 인한 스탯 보너스를 모두 잃고, 들킨 상대로부터 숨기 위한 행동만을 할 수 있다.}
 		
-		\smallskip
-		
-		\textbf{제약(공포)}: 호의적이지 않은 타인이 \storyref{kitsune:nine-tail}{아홉 개의 꼬리}에 접촉하면 즉시 해당 타인을 물리적으로 공격한다.
+		\triggertrauma{공포}{호의적이지 않은 타인이 \storyref{kitsune:nine-tail}{아홉 개의 꼬리}에 접촉한다.}{즉시 해당 타인을 물리적으로 공격한다.}
 		
 		\cost{-40}
 	\end{story}
@@ -38,17 +32,15 @@
 	\begin{story}[kitsune:fox-orb]{여우 구슬}{[종족: 구미호]}
 		\pre{종족: 구미호}
 		
-		같은 구역에 있는 상대에 대해 물리적 공격을 통해 준 피해량만큼 자신의 체력을 회복한다.
+		\entry{같은 구역에 있는 상대에 대해 물리적 공격을 통해 준 피해량만큼 자신의 체력을 회복한다.}
 		
 		\cost{20}
 	\end{story}
 	
 	\begin{story}{민첩하지만 연약한 몸}{[종족: 구미호][공포]}
-		\textbf{제약(공포)}: 물리적인 피해를 받을 때, 피해를 1 추가로 받는다.
+		\limitedtrauma{공포}{물리적인 피해를 받을 때, 피해를 1 추가로 받는다.}
 		
-		\smallskip
-		
-		\textbf{스탯 +}: 기민
+		\statchange{+}{기민}
 		
 		\cost{-5}
 	\end{story}
@@ -58,7 +50,7 @@
 	\begin{story}{정신 감응}{[종족: 구미호][심화]}
 		\pre{\storyref{kitsune:nine-tail}{아홉 개의 꼬리}}
 		
-		\storyref{kitsune:nine-tail}{아홉 개의 꼬리}로 인해 [정신 지배: (구미호 이름)] 상태를 받은 상대의 [정신 지배]가 풀릴 때, [정신 감응: (구미호 이름)] 상태를 준다. 구미호는 [정신 감응] 상태를 가진 상대에 대항하여 행동할 때 +2를 받는다. 단, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}의 정신적 공격 판정의 보너스와 중복되어 적용되지는 않는다.
+		\entry{\storyref{kitsune:nine-tail}{아홉 개의 꼬리}로 인해 [정신 지배: (구미호 이름)] 상태를 받은 상대의 [정신 지배]가 풀릴 때, [정신 감응: (구미호 이름)] 상태를 준다. 구미호는 [정신 감응] 상태를 가진 상대에 대항하여 행동할 때 +2를 받는다. 단, \storyref{kitsune:nine-tail}{아홉 개의 꼬리}의 정신적 공격 판정의 보너스와 중복되어 적용되지는 않는다.}
 		
 		\cost{20}
 	\end{story}

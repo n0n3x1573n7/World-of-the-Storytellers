@@ -1,0 +1,29 @@
+\documentclass{report}
+
+\begin{document}
+	\begin{story}{뼈 무더기}{[종족: 스켈레톤]}
+		\pre{종족: 스켈레톤}
+		
+		\flavour{죽은 채로 움직이는, 뼈만 남은 앙상한 종족이다.}
+		
+		\entry{몸을 자유자재로 해체할 수 있다. 특히, 전투 중에 자신의 턴이 아닐 때에도 몸을 완전히 해체하여 뼈 무더기가 된다면 모든 공격을 회피할 수 있다. 단, 다음 턴이 끝날때까지 아무것도 할 수 없으며, 턴이 끝났을 때까지 해당 구역 등에 지속되는 효과 또는 [신성] 속성의 공격에 대해서는 회피가 불가능하다.}
+		
+		\cost{25}
+	\end{story}
+	
+	\begin{story}{삐그덕거리는 관절}{[종족: 스켈레톤][공포]}
+		\pre{종족: 스켈레톤}
+		
+		\triggertrauma{공포}{누군가가 자신이 스켈레톤임을 처음으로 눈치챈다.}{\textbf{효과}: 해당 인물은 하루동안 기피증 \storyref{skeleton:living-dead}{산송장}을 받는다.}
+		
+		\statchange{-}{근력[2], 민첩[2]}
+		
+		\cost{-30}
+	\end{story}
+	
+	\begin{story}[skeleton:living-dead]{산송장}{[기피: 스켈레톤]}
+		\limitedtrauma{기피}{이 공포증을 준 대상에게 호의적으로 행동할 수 없다.}
+		
+		\cost{0}
+	\end{story}
+\end{document}
