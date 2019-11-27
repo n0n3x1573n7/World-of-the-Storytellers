@@ -40,7 +40,11 @@
 %\usepackage{lipsum}
 \usepackage{standalone}
 \usepackage{enumitem}
-\setlist{topsep=0pt,itemsep=0pt,parsep=0pt,before=\vspace{1mm},after=\vspace{1mm}}%{nosep,topsep=0pt,after=\vspace{0pt}}
+\setlist{nolistsep}%{topsep=0pt,itemsep=0pt,parsep=0pt,before=\vspace{0mm},after=\vspace{0mm}}
+
+\usepackage{etoolbox}
+\AfterEndEnvironment{enumerate}{\vskip-\lastskip}
+\AfterEndEnvironment{itemize}{\vskip-\lastskip}
 
 \usepackage{multirow}
 \usepackage{ulem}
@@ -74,6 +78,8 @@ version={4.0},
 
 \renewcommand\mtcgapbeforeheads{0pt}
 
+\usepackage{arydshln}
+
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \ignorespaces \smallbreak \par
@@ -81,17 +87,15 @@ version={4.0},
 	\begin{minipage}{\linewidth}
 		\begin{center}
 			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\begin{tabular}{|p{0.97\linewidth}|}
+			\tabular{|p{0.97\linewidth}|}
 				\hline
 				\textbf{속성}: #3
 				\index{#2}
 				\\\hline
-				\ignorespaces \unskip
-			}
-			{ 
-				%\unskip
-				\\\hline
-			\end{tabular}
+				\ignorespaces\unskip
+				}
+				{
+			\endtabular
 		\end{center}
 	\end{minipage}
 	\par
@@ -105,17 +109,14 @@ version={4.0},
 	\begin{minipage}{\linewidth}
 		\begin{center}
 			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\begin{tabular}{|p{0.97\linewidth}|}
+			\tabular{|p{0.97\linewidth}|}
 				\hline
 				\textbf{속성}: #3
-				\\
-				\hline
-				\unskip
-			}
-			{ 
-				%\unskip
 				\\\hline
-			\end{tabular}
+				\ignorespaces\unskip
+				}
+				{
+			\endtabular
 		\end{center}
 	\end{minipage}
 	\par
@@ -136,45 +137,39 @@ version={4.0},
 }
 {\par\smallbreak}
 
-\newcommand{\pre}[1]{\unskip \ignorespaces\textbf{필요 조건}: \textit{#1}\smallskip}
-
-\newcommand{\cost}[1]{\unskip \ignorespaces\textbf{개연성 코스트}: #1}
-
-\newcommand{\limitedtrauma}[2]
-{
-	\unskip \ignorespaces
-	\textbf{제약(#1)}: #2
-	\smallskip
-}
-
-\newcommand{\triggertrauma}[3]
-{
-	\unskip \ignorespaces
-	\textbf{트리거(#1)}: #2
-	
-	\textbf{효과}: #3
-	\smallskip
-}
-
 \newcommand{\statchange}[2]
 {
-	\unskip \ignorespaces
 	\textbf{스탯 #1}: #2
-	\smallskip
-}
-
-\newcommand{\flavour}[1]
-{
-	\unskip \ignorespaces
-	\textit{#1}
-	\smallskip
 }
 
 \newcommand{\entry}[1]
 {
-	\unskip \ignorespaces
-	#1
-	\smallskip
+	#1\\\hline
+}
+
+\newcommand{\pre}[1]
+{
+	\entry{\textbf{필요 조건}: \textit{#1}}
+}
+
+\newcommand{\cost}[1]
+{
+	\entry{\textbf{개연성 코스트}: #1}
+}
+
+\newcommand{\limitedtrauma}[2]
+{
+	\entry{\textbf{제약(#1)}: #2}
+}
+
+\newcommand{\triggertrauma}[3]
+{
+	\entry{\textbf{트리거(#1)}: #2\\\textbf{효과}: #3}
+}
+
+\newcommand{\flavour}[1]
+{
+	\entry{\textit{#1}}
 }
 
 \newfontfamily\nanumpen{Nanum Pen Script}

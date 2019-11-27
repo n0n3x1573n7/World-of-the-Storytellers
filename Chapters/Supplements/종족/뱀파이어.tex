@@ -8,7 +8,7 @@
 		
 		\entry{같은 구역 안에 있는 [유혹: (뱀파이어 이름)] 상태를 가진 이야기꾼 또는 등장인물의 목을 물 수 있다. 같은 구역 안에 있는 다른 이들에 의해 기회공격을 받을 수 있으나, 뱀파이어가 그로 인해 사망하거나 \storyref{vampire:transform}{변신}을 통해 도망가지 않았다면 대상의 종족에 뱀파이어가 추가되고, [유혹: (뱀파이어 이름)] 상태가 [지배: (뱀파이어 이름)]으로 변화하여 영구히 유지된다.}
 		
-		\statchange{+}{인맥}
+		\entry{\statchange{+}{인맥}}
 		
 		\cost{30}
 	\end{story}
@@ -16,11 +16,12 @@
 	\begin{story}[vampire:transform]{변신: 뱀파이어}{[종족: 뱀파이어]}
 		\pre{종족: 뱀파이어}
 		
-		\entry{다음 중 하나로 변신해 해당 효과를 받을 수 있다:
+		\entry{다음 중 하나로 변신할 수 있다:
 		\begin{itemize}
 			\item \textbf{안개}: 물리 공격 면역, 마법 및 정신 공격 회피 또는 방어 불가
 			\item \textbf{박쥐}: 비행 가능, 어둠 속에서 시야 확보 가능
-		\end{itemize}}
+		\end{itemize}
+		효과는 변신을 해제하기 전까지 유지되며, 변신한 동안은 \storyref{vampire:kiss}{뱀파이어의 키스}와 \storyref{vampire:fang}{커다란 송곳니}가 비활성화된다.}
 		
 		\entry{변신은 \storyref{vampire:kiss}{뱀파이어의 키스}로 인한 기회공격을 받았을 때 한 번의 물리 피해를 모두 자동으로 회피하는데에 사용할 수 있다.}
 		

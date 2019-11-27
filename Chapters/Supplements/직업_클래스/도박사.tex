@@ -22,7 +22,8 @@
 			\item 승자가 \textcolor{red}{[스페셜]}이 아니라면, 두 수의 차이만큼의 피해를 준다.
 			\item 승자가 \textcolor{red}{[스페셜]}이라면, 두 수의 차이만큼에 1을 더한 만큼의 피해를 준다.
 			\item 패자가 \textcolor{blue}{[버스트]}라면, 위의 피해량의 두배에 해당하는 피해를 물리 또는 정신에 한번에 주거나, \textcolor{green}{[스플릿]} 하여 물리/정신에 각각 나누어 줄 수 있다.
-		\end{itemize}}
+		\end{itemize}
+		피해량을 계산한 후, 게임에 참여한 이야기꾼의 이야기에 따라 피해량이 조정될 수 있다. 이 피해량은 게임에 참여하지 않은 이야기꾼에 의해 조정될 수 없다.}
 		
 		\cost{20\footnote{주사위 운에 따라, 자신도 상대도 피해를 받을 수 있는 능력이기 때문에 일반적인 활용형 능력으로 취급됩니다.}}
 	\end{story}
@@ -32,7 +33,7 @@
 		
 		\limitedtrauma{중독}{다른 이에게 피해를 가하고 싶을 때 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 할 수 있다면, 반드시 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 통해서만 피해를 줄 수 있다.}
 		
-		\statchange{-}{근력, 의지, 자본, 인맥}
+		\entry{\statchange{-}{근력, 의지, 자본, 인맥}}
 		
 		\cost{-30}
 	\end{story}
@@ -66,7 +67,7 @@
 		
 		\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}에서, 상대가 \textcolor{blue}{[버스트]}인 경우, 해당 수치가 12에서 넘어선 만큼 추가로 피해를 준다.}
 		
-		\statchange{+}{근력}
+		\entry{\statchange{+}{근력}}
 		
 		\cost{25}
 	\end{story}
@@ -76,7 +77,7 @@
 		
 		\entry{\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다. 즉, 상대가 \textcolor{red}{[스페셜]}이고 자신이 10 미만이며 주사위를 굴리지 않겠다고 선언하기 전이라 할지라도 주사위를 더 이상 굴리지 않아도 된다.}
 		
-		\statchange{+}{인내}
+		\entry{\statchange{+}{인내}}
 		
 		\cost{25}
 	\end{story}
@@ -86,7 +87,7 @@
 		
 		\entry{\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다. 즉, 게임 종료시 동점일 때에도 상대에게 [멍해짐: 1턴]을 줄 수 있다.}
 		
-		\statchange{+}{자본}
+		\entry{\statchange{+}{자본}}
 		
 		\cost{25}
 	\end{story}
@@ -94,7 +95,7 @@
 	\begin{story}{카지노의 VIP 고객}{[클래스: 도박사][심화]}
 		\entry{인맥 판정에 자본 스탯을 보너스로 받아 판정한다.}
 		
-		\statchange{+}{인맥}
+		\entry{\statchange{+}{인맥}}
 		
 		\cost{25}
 	\end{story}
