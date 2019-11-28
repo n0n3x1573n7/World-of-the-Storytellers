@@ -83,6 +83,12 @@ version={4.0},
 \usepackage{xifthen}
 \usepackage{xparse}
 
+\setlength\dashlinedash{0.5pt}
+\setlength\dashlinegap{2.0pt}
+\setlength\arrayrulewidth{0.3pt}
+
+\newcommand{\basesepline}{\hdashline}
+
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \ignorespaces \smallbreak \par
@@ -145,12 +151,12 @@ version={4.0},
 	\textbf{스탯 #1}: #2
 }
 
-\newcommand{\entry}[2][\hdashline]
+\newcommand{\entry}[2][\basesepline]
 {
 	#2\\#1
 }
 
-\newcommand{\pre}[2][\hdashline]
+\newcommand{\pre}[2][\basesepline]
 {
 	\entry[#1]{\textbf{필요 조건}: \textit{#2}}
 }
@@ -160,17 +166,17 @@ version={4.0},
 	\entry[#1]{\textbf{개연성 코스트}: #2}
 }
 
-\newcommand{\limitedtrauma}[3][\hdashline]
+\newcommand{\limitedtrauma}[3][\basesepline]
 {
 	\entry[#1]{\textbf{제약}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3}
 }
 
-\newcommand{\triggertrauma}[4][\hdashline]
+\newcommand{\triggertrauma}[4][\basesepline]
 {
 	\entry[#1]{\textbf{트리거}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3\\\textbf{효과}: #4}
 }
 
-\newcommand{\flavour}[2][\hdashline]
+\newcommand{\flavour}[2][\basesepline]
 {
 	\entry[#1]{\textit{#2}}
 }
