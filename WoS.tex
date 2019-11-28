@@ -80,6 +80,9 @@ version={4.0},
 
 \usepackage{arydshln}
 
+\usepackage{xifthen}
+\usepackage{xparse}
+
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \ignorespaces \smallbreak \par
@@ -142,34 +145,34 @@ version={4.0},
 	\textbf{스탯 #1}: #2
 }
 
-\newcommand{\entry}[1]
+\newcommand{\entry}[2][\hdashline]
 {
-	#1\\\hline
+	#2\\#1
 }
 
-\newcommand{\pre}[1]
+\newcommand{\pre}[2][\hdashline]
 {
-	\entry{\textbf{필요 조건}: \textit{#1}}
+	\entry[#1]{\textbf{필요 조건}: \textit{#2}}
 }
 
-\newcommand{\cost}[1]
+\newcommand{\cost}[2][\hline]
 {
-	\entry{\textbf{개연성 코스트}: #1}
+	\entry[#1]{\textbf{개연성 코스트}: #2}
 }
 
-\newcommand{\limitedtrauma}[2]
+\newcommand{\limitedtrauma}[3][\hdashline]
 {
-	\entry{\textbf{제약(#1)}: #2}
+	\entry[#1]{\textbf{제약}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3}
 }
 
-\newcommand{\triggertrauma}[3]
+\newcommand{\triggertrauma}[4][\hdashline]
 {
-	\entry{\textbf{트리거(#1)}: #2\\\textbf{효과}: #3}
+	\entry[#1]{\textbf{트리거}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3\\\textbf{효과}: #4}
 }
 
-\newcommand{\flavour}[1]
+\newcommand{\flavour}[2][\hdashline]
 {
-	\entry{\textit{#1}}
+	\entry[#1]{\textit{#2}}
 }
 
 \newfontfamily\nanumpen{Nanum Pen Script}
