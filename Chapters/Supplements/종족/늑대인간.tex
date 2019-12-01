@@ -21,12 +21,12 @@
 		\cost{미발동시 10, 발동시 25\footnote{미발동시에는 아무 효과가 없으므로 미발동시와 발동시의 코스트가 달라집니다. 늑대인간화 발동으로 인한 개연성 판정을 할 때에는 발동시의 코스트를 따릅니다.}}
 	\end{story}
 	
-	\begin{story}{보름달}{[종족: 늑대인간][광기]}
-		\pre{\storyref{werewolf:transform}{늑대인간화}}
+	\begin{story}[werewolf:curse]{늑대의 저주}{[종족: 늑대인간][기피]}
+		\pre{\storyref{werewolf:transform}{늑대인간화} 발동}
 		
-		\triggertrauma{공포}{해가 지고 보름달이 뜬다.}{이야기 \storyref{werewolf:transform}{늑대인간화}가 의지에 상관없이 발동되며, 이성을 잃는다.}
+		\limitedtrauma{기피}{너클류를 포함한 모든 무기와 도구를 사용할 수 없다.}
 		
-		\cost{-20}
+		\cost{0}
 	\end{story}
 	
 	\begin{story}[werewolf:silver]{은}{[종족: 늑대인간][공포]}
@@ -45,14 +45,6 @@
 		\cost{20}
 	\end{story}
 	
-	\begin{story}[werewolf:curse]{늑대의 저주}{[종족: 늑대인간][기피]}
-		\pre{\storyref{werewolf:transform}{늑대인간화} 발동}
-		
-		\limitedtrauma{기피}{너클류를 포함한 모든 무기와 도구를 사용할 수 없다.}
-		
-		\cost{0}
-	\end{story}
-	
 	\begin{story}[werewolf:scratch]{할퀴기}{[종족: 늑대인간]}
 		\pre{\storyref{werewolf:transform}{늑대인간화} 발동}
 		
@@ -61,5 +53,13 @@
 		\entry{\storyref{werewolf:scratch}{할퀴기}를 사용해 공격했을 때, 대상이 사망 또는 추방될 경우 그 사람은 종족에 늑대인간이 추가되며, 즉시 체력을 모두 회복하나 \storyref{werewolf:transform}{늑대인간화}를 발동하고 이성을 잃는다.}
 		
 		\cost{10+(전투, 근력 중 높은 수치)*4}
+	\end{story}
+	
+	\begin{story}{보름달}{[종족: 늑대인간][광기]}
+		\pre{\storyref{werewolf:transform}{늑대인간화}}
+		
+		\triggertrauma{공포}{해가 지고 보름달이 뜬다.}{이야기 \storyref{werewolf:transform}{늑대인간화}가 의지에 상관없이 발동되며, 이성을 잃는다.}
+		
+		\cost{-20}
 	\end{story}
 \end{document}
