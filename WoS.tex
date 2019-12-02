@@ -93,6 +93,10 @@ version={4.0},
 \setlength\dashlinegap{2.0pt}
 \setlength\arrayrulewidth{0.3pt}
 
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
 \newcommand{\basesepline}{\hdashline}
 
 %environment for normal stories, appears on index
