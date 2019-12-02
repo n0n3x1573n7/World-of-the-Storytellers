@@ -2,6 +2,12 @@
 %Use \documentclass[12pt]{book} to printout and make it into a book
 \renewcommand{\numberline}[1]{#1~}
 
+\newif\ifDLC
+\DLCfalse %\DLCtrue or \DLCfalse
+
+\newif\iffullchangelog
+\fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
+
 %\usepackage{kotex}
 \usepackage{CJKutf8}
 
@@ -190,11 +196,23 @@ version={4.0},
 {\smallskip\parskip=0pt\par\nopagebreak\centering}
 {\par\noindent\ignorespacesafterend\smallskip}
 
+\usepackage{fancyhdr}
+\ifDLC
+	\pagestyle{fancy}
+	\fancyhf{}
+	\cfoot{\thepage}
+	\rhead{\textcolor{red}{DLC ENABLED}}
+	\lhead{\textcolor{red}{DLC ENABLED}}
+	\rfoot{\textcolor{red}{DLC ENABLED}}
+	\lfoot{\textcolor{red}{DLC ENABLED}}
+\fi
+
 \title{
 	World of the Storytellers\\
 	이야기꾼의 세계\\
 	\large version 1.2.3\\
-	Last Update: \today \\
+	Last Update: \today
+	\ifDLC{\\ \textcolor{red}{DLC ENABLED}}\fi
 }
 
 \author{None(\href{https://www.twitter.com/n0n3x1573n7}{@n0n3x1573n7}, \href{https://www.twitter.com/n0n3x1573n7_WS}{@n0n3x1573n7\_WS})}
