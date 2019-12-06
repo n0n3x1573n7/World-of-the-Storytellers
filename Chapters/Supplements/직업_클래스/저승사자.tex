@@ -1,5 +1,30 @@
 \documentclass{report}
 
 \begin{document}
+	\pre[]{\hyperlink{species:ghost}{종족: 귀신}}
 	
+	\begin{story}{죽음의 그림자를 몰고 다니는 자}{[종족: 귀신][클래스: 저승사자]}
+		\pre{클래스: 저승사자, \storyref{ghost:not-living-anymore}{더 이상 살아있지 못한 자}}
+		
+		\entry{\storyref{ghost:not-living-anymore}{더 이상 살아있지 못한 자}의 효과가 다음과 같이 약화된다:
+		\begin{itemize}
+			\item \storyref{reaper:the-reaping}{영혼 수확}을 통해 물리적인 피해를 줄 수 있다.
+			\item 죽음을 앞둔 타인, 또는 저승사자가 직접 공격한 타인 또는 그 아군에게는 시각적으로 인식될 수 있다.
+		\end{itemize}
+		나머지 \hyperlink{species:ghost}{[종족: 귀신]} 이야기, 즉 \storyref{ghost:ghost-body}{영체}, \storyref{ghost:possess}{빙의}, \storyref{ghost:poltergeist}{폴터가이스트}는 그대로 유지된다.}
+
+		\cost{20}
+	\end{story}
+	
+	\begin{story}[reaper:the-reaping]{영혼 수확(The Reaping)}{[클래스: 저승사자]}
+		\pre{클래스: 저승사자}
+		
+		\entry{전투 씬에 돌입하면 [영혼] 5/20을 얻는다. 매 턴이 시작할 때, [영혼] 1을 얻는다. \storyref{ghost:ghost-body}{영체}를 1 소모하여 [영혼] 1을 얻을 수도 있다.}
+		
+		\entry{어떤 공격을 통해 물리적인 피해를 주고 싶다면, 공격을 하기 이전 원하는 만큼 [영혼]을 소모한다. 해당 공격에 대한 최대 물리 피해량은 소모된 [영혼]의 양과 동일하다\footnote{영혼을 2 소모했고, 판정 결과 피해를 5 줄 수 있다고 해도 피해는 2만 줄 수 있습니다.}. 해당 공격이 성공했다면, 대상의 정신력을 소모된 영혼의 반(버림) 만큼 감소시키고, \storyref{ghost:ghost-body}{영체}를 물리적 피해량만큼 회복한다.}
+		
+		\entry{어떤 대상이 \storyref{reaper:the-reaping}{영혼 수확}의 정신력 피해를 통해 전투에서 탈락한다면, [영혼]의 최대치가 영구히 2 증가한다.}
+		
+		\cost{23}
+	\end{story}
 \end{document}

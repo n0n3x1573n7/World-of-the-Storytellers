@@ -1,5 +1,17 @@
 \documentclass{report}
 
 \begin{document}
+	\begin{story}[necromancer:half-dead]{죽음을 반쯤 경험한 자}{[종족: (이야기꾼의 종족)][종족: (언데드 종족 중 하나)]}
+		\pre{언데드 종족 중 하나를 선택한다.\footnote{서플리먼트를 기준으로, \hyperlink{species:vampire}{[종족: 뱀파이어]}, \hyperlink{species:ghost}{[종족: 귀신]}, \hyperlink{species:zombie}{[종족: 좀비]}, \hyperlink{species:skeleton}{[종족: 스켈레톤]}이 있습니다.}}
+		
+		\entry{종족이 반은 본래의 종족, 반은 해당 언데드 종족이 된다. 해당 언데드 종족의 이야기를 전부 가진다. 단, 해당 이야기들로 인해 다른 살아있는 이들의 종족을 변하게 할 수는 없다.}
+		
+		\cost{20}
+	\end{story}
 	
+	\begin{story}{언데드 부활}{[클래스: 네크로맨서]}
+		\entry{시체가 있다면, 그를 전투중이 아닐 때 \storyref{necromancer:half-dead}{죽음을 반쯤 경험한 자}에서 선택한 종족으로 변화시킬 수 있다. 해당 시체에게 선택한 언데드의 모든 이야기를 준다. 해당 시체는 생전의 이야기를 모두 가진 채로 이야기꾼의 \storyref{summon}{소환수}로서 행동한다. 이 이야기의 코스트에 소환수로 만들어질 때의 비용이 더해지나, 이미 존재하는 시체를 소환수로서 사용한 것이기 때문에 소환수의 비용이 25\% 감소한다.}
+		
+		\cost{20}
+	\end{story}
 \end{document}
