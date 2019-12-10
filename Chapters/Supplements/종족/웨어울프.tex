@@ -1,0 +1,65 @@
+\documentclass{report}
+
+\begin{document}
+	\begin{story}[werewolf:transform]{웨어울프화}{[종족: 웨어울프]}
+		\pre{종족: 웨어울프}
+		
+		\entry{해가 진 후 언제든지 웨어울프로 변할 수 있다. 웨어울프화를 발동하면, 다음이 모두 적용된다:
+		\begin{itemize}
+			\item 기피증 \storyref{werewolf:curse}{늑대의 저주}, 공포증 \storyref{werewolf:silver}{은}과 이야기 \storyref{werewolf:howling}{하울링}, \storyref{werewolf:scratch}{할퀴기}를 얻는다.
+			\item \statchange{+}{도발, 기민, 근력, 전투}
+			\item \statchange{-}{은신}
+		\end{itemize}
+		웨어울프화를 발동시킨 이후, 정신력이 0이 되면 이성을 잃는다.}
+		
+		\entry{이성을 잃지 않았다면 언제든지 웨어울프화를 해제할 수 있다.
+		
+		이성을 잃었다면 웨어울프화의 자발적인 해제가 불가능하며, 주변에 있는 무작위 대상을 공격한다.}
+		
+		\entry{해가 뜨거나 사망/추방에 이르는 피해를 받으면 웨어울프화는 강제로 해제된다.}
+		
+		\cost{미발동시 10, 발동시 25\footnote{미발동시에는 아무 효과가 없으므로 미발동시와 발동시의 코스트가 달라집니다. 웨어울프화 발동으로 인한 개연성 판정을 할 때에는 발동시의 코스트를 따릅니다.}}
+	\end{story}
+	
+	\begin{story}[werewolf:curse]{늑대의 저주}{[종족: 웨어울프][기피]}
+		\pre{\storyref{werewolf:transform}{웨어울프화} 발동}
+		
+		\limitedtrauma{기피}{너클류를 포함한 모든 무기와 도구를 사용할 수 없다.}
+		
+		\cost{0}
+	\end{story}
+	
+	\begin{story}[werewolf:silver]{은}{[종족: 웨어울프][공포]}
+		\pre{\storyref{werewolf:transform}{웨어울프화} 발동}
+		
+		\triggertrauma{공포}{이성을 잃지 않은 채로 은제 무기로 인한 물리 피해를 받는다.}{물리 피해에 해당하는 만큼 정신 피해를 입는다.}
+		
+		\cost{-10}
+	\end{story}
+	
+	\begin{story}[werewolf:howling]{하울링}{[종족: 웨어울프]}
+		\pre{\storyref{werewolf:transform}{웨어울프화} 발동}
+		
+		\entry{전투에서, 자신의 턴이 시작할 때 하울링을 할 수 있다. 하울링을 들은 이성을 잃지 않은 모든 이들은 웨어울프의 도발에 대항하여 의지 판정을 한다. 웨어울프의 도발이 성공한다면 이들은 다음 웨어울프의 턴이 종료될 때까지 이성을 잃은 것으로 취급하여, 자신의 턴에 공격할 수 있다면 반드시 무작위 대상을 공격해야 한다.}
+		
+		\cost{20}
+	\end{story}
+	
+	\begin{story}[werewolf:scratch]{할퀴기}{[종족: 웨어울프]}
+		\pre{\storyref{werewolf:transform}{웨어울프화} 발동}
+		
+		\entry{같은 구역에 있는 대상을 선정한다. 기민으로 명중 판정을 한 뒤 대상은 기민으로 회피 판정을 한다. 공격이 명중했다면, 전투 또는 근력 중 높은 수치만큼의 피해(최소 1)를 준다. 웨어울프가 아닌 이를 공격했을 때에는, 추가 피해를 1 준다.}
+		
+		\entry{\storyref{werewolf:scratch}{할퀴기}를 사용해 공격했을 때, 대상이 사망 또는 추방될 경우 대상은 종족에 웨어울프가 추가되며, 즉시 체력을 모두 회복하나 \storyref{werewolf:transform}{웨어울프화}를 발동하고 이성을 잃는다.}
+		
+		\cost{10+(전투, 근력 중 높은 수치)*4}
+	\end{story}
+	
+	\begin{story}{보름달}{[종족: 웨어울프][광기]}
+		\pre{\storyref{werewolf:transform}{웨어울프화}}
+		
+		\triggertrauma{공포}{해가 지고 보름달이 뜬다.}{이야기 \storyref{werewolf:transform}{웨어울프화}가 의지에 상관없이 발동되며, 이성을 잃는다.}
+		
+		\cost{-20}
+	\end{story}
+\end{document}
