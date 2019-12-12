@@ -99,6 +99,8 @@ version={4.0},
 
 \newcommand{\basesepline}{\hdashline}
 
+\newcommand{\widthratio}{0.975}
+
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \ignorespaces \smallbreak \par
@@ -106,7 +108,7 @@ version={4.0},
 	\begin{minipage}{\linewidth}
 		\begin{center}
 			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\tabular{|p{0.97\linewidth}|}
+			\tabular{|p{\widthratio\linewidth}|}
 				\hline
 				\textbf{속성}: #3
 				\index{#2}
@@ -128,7 +130,7 @@ version={4.0},
 	\begin{minipage}{\linewidth}
 		\begin{center}
 			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\tabular{|p{0.97\linewidth}|}
+			\tabular{|p{\widthratio\linewidth}|}
 				\hline
 				\textbf{속성}: #3
 				\\\hline
