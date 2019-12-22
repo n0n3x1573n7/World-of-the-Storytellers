@@ -1,0 +1,92 @@
+\documentclass{report}
+
+\begin{document}
+	\begin{story}[captain:pirate]{해적 선장}{[직업][소환수]}
+		\flavour{해적선의 주인이자 선원들의 고용주.}
+		
+		\entry{이 이야기는 아래 사항들을 제외하고, \storyref{summon}{소환수}로 취급한다.}
+		
+		\entry{해적선과 무기, 선원들을 소환수로서 사용할 수 있다. 한번에 한 개체만 소환수로서 사용할 수 있으며, 소환수를 소환한 동안 자금에 다음 페널티를 받는다:
+		
+		\begin{center}
+			\begin{tabular}{c|c}
+			소환 대상 & 페널티 \\\hline\hline
+			선원 & -1 \\\hline
+			무기 & -2 \\\hline
+			해적선 & -3
+			\end{tabular}
+		\end{center}
+		
+		이로 인해 해적 선장의 자금이 음수가 될 수 없다.}
+		
+		\entry{\statchange{+}{자금[3]}}
+		
+		\cost{25}
+	\end{story}
+	
+	\subsection{해적 선원}
+	체력 10, 정신력 10, 개연성 0
+	
+	\begin{story}{어진가 조금 모자란 친구들}{[생애][소환수]}
+		\flavour{선장의 명령을 절대적으로 따르는 충직한 선원.}
+		
+		\entry{다음 신체적 결함 중 한 가지를 지정한다.
+		\begin{center}
+			\begin{tabular}{c|l}
+				신체적 결함 & 스탯 변화 \\\hline\hline
+				의안 & \statchange{-}{관찰} \\\hline
+				의족 & \statchange{-}{기민} \\\hline
+				의수 & \statchange{-}{근력}. 단, 체력은 변하지 않는다.
+			\end{tabular}
+		\end{center}
+		나머지 스탯은 0으로 취급한다.}
+		
+		\cost{10}
+	\end{story}
+	
+	\begin{story}{고용 관계}{[기피]}
+		\entry{선원이 사망하면 소환은 해제되며, 선장의 \storyref{captain:pirate}{해적 선장} 이야기에 ``\statchange{-}{자금}"이 추가된다. 이는 [태초의 이야기]로 되돌아가면 초기화된다.}
+		
+		\cost{-10}
+	\end{story}
+	
+	\subsection{무기}
+	\begin{story}{대포}{[소환수]}
+		\entry{내구 10을 가진다.}
+		
+		\entry{자의적인 소환 해제가 불가능하다. 소환된 씬이 종료되면 즉시 소환이 해제된다.}
+		
+		\entry{내구 1을 소모한다. 한 구역에 피해 3을, 주변 구역에 방사 피해 1을 준다.}
+		
+		\cost{20}
+	\end{story}
+	
+	\begin{story}{파괴된 무기}{[공포]}
+		\entry{무기가 파괴되면 소환은 해제되며, 선장의 \storyref{captain:pirate}{해적 선장} 이야기에 ``\statchange{-}{자금[2]}"이 추가된다. 이는 [태초의 이야기]로 되돌아가면 초기화된다.}
+		
+		\cost{-20}
+	\end{story}
+	
+	\subsection{해적선}
+	\begin{story}{해적선}{[소환수]}
+		\entry{내구 40을 가진다.}
+		
+		\entry{바다 위를 자유롭게 항해할 수 있다.}
+		
+		\entry{해적선 밖에서 안으로 피해를 줄 때, 내부에 있는 인원에게 피해를 주지 못하는 대신, 피해량의 반 만큼 해적선의 내구도가 감소한다.}
+		
+		\entry{해적선상의 전투에서 누군가 피해를 받으면 해적선의 내구가 1 감소한다.}
+		
+		\entry{해적선에 타 있는 동안, 피해를 주는 대상을 해적선을 설정하여 직접 해적선의 내구에 피해를 줄 수 있다.}
+		
+		\cost{30}
+	\end{story}
+	
+	\begin{story}{파괴된 해적선}{[광기]}
+		\entry{해적선의 내구도가 0이 되면 소환은 해제되며, 선장의 \storyref{captain:pirate}{해적 선장} 이야기에 ``\statchange{-}{자금[3]}"이 추가된다. 이는 [태초의 이야기]로 되돌아가면 초기화된다.}
+		
+		\entry{해적선이 파괴될 때 선상에 있던 모든 이들은 즉시 해적선이 존재하던 표면 상(바다 위, 땅 등)으로 낙하하며, 해적선을 파괴시킨 이를 제외한 모든 선상에 있던 이들은 상태이상 [패닉]을 얻는다.}
+		
+		\cost{-30}
+	\end{story}
+\end{document}
