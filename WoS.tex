@@ -187,13 +187,13 @@ version={4.0},
 	\entry[#1]{\textbf{트리거}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3\\\textbf{효과}: #4}
 }
 
+\newfontfamily\storyfont{Nanum Pen Script}
 \newcommand{\flavour}[2][\basesepline]
 {
-	\entry[#1]{\textit{#2}}
+	\entry[#1]{{\storyfont\large#2}}
 }
 
-\newfontfamily\nanumpen{Nanum Pen Script}
-\newcommand{\world}[1]{{\nanumpen \large #1 \par}\bigskip}
+\newcommand{\world}[1]{{\storyfont \large #1 \par}\bigskip}
 
 \setlength\parindent{0pt}
 
