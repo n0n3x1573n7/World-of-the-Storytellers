@@ -100,6 +100,11 @@ version={4.0},
 
 \newcommand{\widthratio}{0.975}
 
+\newenvironment{tightcenter}{%
+	\setlength\topsep{0pt}%
+	\setlength\parskip{0pt}%
+	\par\centering}{\par\noindent\ignorespacesafterend}
+
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
 { \ignorespaces \smallbreak \par
