@@ -41,7 +41,7 @@
 	\begin{story}[gambler:all-in]{올인}{[클래스: 도박사][집착]}
 		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 		
-		\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 결과가 \textcolor{red}{[스페셜]}일 때, 즉시 [멍해짐: 1턴] 상태를 주는 것으로 게임으로 인한 피해량 판정 없이 게임을 종료할 수 있다. [멍해짐] 상태를 받은 상대는 다음 자신의 턴에 아무 행동도 할 수 없다.}
+		\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 결과 자신이 \textcolor{red}{[스페셜]}일 때, 즉시 [멍해짐: 1턴] 상태를 주는 것으로 게임으로 인한 피해량 판정 없이 게임을 종료할 수 있다. [멍해짐] 상태를 받은 상대는 다음 자신의 턴에 아무 행동도 할 수 없다.}
 		
 		\limitedtrauma{집착}{\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 결과가 \textcolor{red}{[스페셜]}이라도, \textcolor{green}{[스플릿]} 할 수 없다.}
 		

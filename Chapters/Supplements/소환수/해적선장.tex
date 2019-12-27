@@ -11,9 +11,9 @@
 		\begin{center}
 			\begin{tabular}{c|c}
 			소환 대상 & 페널티 \\\hline\hline
-			선원 & -1 \\\hline
-			무기 & -2 \\\hline
-			해적선 & -3
+			\hyperlink{captain:sailor}{선원} & -1 \\\hline
+			\hyperlink{captain:cannon}{대포} & -2 \\\hline
+			\hyperlink{captain:ship}{해적선} & -3
 			\end{tabular}
 		\end{center}
 		이로 인해 해적 선장의 자금이 음수가 될 수 없다. 자금이 허락하는 한 여러 개체를 소환할 수 있다.}
@@ -23,6 +23,7 @@
 		\cost{25}
 	\end{story}
 	
+	\hypertarget{captain:sailor}{}
 	\subsection{해적 선원}
 		체력 10, 정신력 10, 개연성 0
 		
@@ -53,7 +54,8 @@
 			\cost{-10}
 		\end{story}
 	
-	\subsection{무기}
+	\hypertarget{captain:cannon}{}
+	\subsection{대포}
 		\begin{story}{대포}{[생애][소환수]}
 			\entry{내구 10을 가진다.}
 			
@@ -70,6 +72,7 @@
 			\cost{-20}
 		\end{story}
 	
+	\hypertarget{captain:ship}{}
 	\subsection{해적선}
 		\begin{story}{해적선}{[생애][소환수]}
 			\entry{내구 40을 가진다.}
