@@ -20,7 +20,20 @@
 	\end{story}
 	
 	\begin{story}{크기가 곧 힘}{[종족: 골렘]\hyperlink{daedu}{Ⓓ}}
-		\flavour{골렘의 크기는 골렘의 체력과 비례한다. 돌이 떨어져 나갈수록 체력과 힘은 줄어들지만 민첩해진다.}
+		\pre{종족:골렘}
+	
+		\flavour{골렘의 크기는 골렘의 체력과 비례한다.}
+		
+		\entry{골렘의 최대 체력에 대한 현재 체력의 비율에 따라 골렘의 스탯이 변화한다. 또한, 변화한 스탯에 따라 코스트 역시 변화한다.}
+		
+		\begin{tightcenter}
+			\begin{tabular}{c|l|c}
+				\textbf{잔여 체력}      & \textbf{효과}                                & \textbf{코스트}\\\hline\hline
+				100\% 이하\sim50\% 초과              & 변화 없음                                         & 0              \\\hline
+				50\% 이하\sim0\% 초과              & 근력, 전투스탯 1 하락. 기민 스탯 1 상승. & -5              \\\hline
+				0\%              & 근력, 전투 스탯 2 하락. 기민, 은신 스탯 1 상승.     & -10            \\
+			\end{tabular}
+		\end{tightcenter}}
 	\end{story}
 	
 	\begin{story}{자연주의}{[종족: 골렘][집착]\hyperlink{daedu}{Ⓓ}}
