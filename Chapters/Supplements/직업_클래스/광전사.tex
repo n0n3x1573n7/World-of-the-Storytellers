@@ -1,7 +1,46 @@
 \documentclass{report}
 
 \begin{document}
-	\begin{story}{}{[클래스:광전사]\hyperlink{celesteela}{ⓣ}}
+	\world{`내 칼 목마르다!'}
+	
+	어마어마한 체력을 가지고 돌격하는, 분노 조절 장인입니다.
+	
+	\begin{story}[barbarian:rage]{나, 화났다!}{[클래스:광전사]\hyperlink{celesteela}{ⓣ}}
+		\pre{광전사는 근접 무기에 특화되어 있다. 근접 무기로만 광전사의 기술을 사용할 수 있다.}
 		
+		\entry{근접 무기를 들고 있을 때 ``\statchange{+}{근력, 전투}"를 받는다. 단, 최대 체력은 변하지 않는다.}
+		
+		\entry{광전사는 24시간에 1분\footnote{1턴이 5초이므로, 총 12턴간 유지할 수 있습니다.}간 [분노] 상태에 돌입할 수 있다. 분노 상태에 돌입하면 ``\statchange{+}{근력, 전투}"를 얻고 이에 해당하는 임시 체력도 얻지만, 전투와 근력, 의지, 인식, 기민을 제외한 모든 다른 스탯을 사용할 수 없다. [분노] 상태는 자신의 턴이 시작할 때와 끝날 때, 자유롭게 활성화하거나 비활성화할 수 있다.}
 	\end{story}
+	
+	\begin{story}[barbarian:raw-strength]{힘의 대가}{[클래스:광전사]\hyperlink{celesteela}{ⓣ}}
+		\entry{정신적 충격에 대해 의지 판정 -2.}
+		
+		\entry{\statchange{-}{은신[2], 제작[2]}}
+	\end{story}
+	
+	\subsection{광전사 심화 이야기}
+		\begin{story}{무자비한 돌진}{[클래스:광전사][심화]\hyperlink{celesteela}{ⓣ}}
+			\pre{\storyref{barbarian:rage}{나, 화났다!}, \storyref{barbarian:raw-strength}{힘의 대가}}
+			
+			\entry{광전사가 [분노]를 활성화한 상태에서 최대 거리를 이동하여 공격했고 공격이 명중했다면, 대상은 의지 판정을 하여 0 미만이 나온다면 넘어져, 다음 턴 이동이 불가하다.}
+		\end{story}
+		
+		\begin{story}{대지 강타}{[클래스:광전사][심화]\hyperlink{celesteela}{ⓣ}}
+			\pre{\storyref{barbarian:rage}{나, 화났다!}, \storyref{barbarian:raw-strength}{힘의 대가}}
+			
+			\entry{광전사가 [분노]를 활성화한 상태에서 이동하지 않은 상태일 때 사용 가능하다. 지면을 강타하여 45도의 부채꼴 호 모양으로 10m 내의 대상들은 의지 판정을 하여 0 미만이 나온다면 넘어져, 다음 턴 이동이 불가하다.}
+		\end{story}
+		
+		\begin{story}{무기 던지기}{[클래스:광전사][심화]\hyperlink{celesteela}{ⓣ}}
+			\pre{\storyref{barbarian:rage}{나, 화났다!}, \storyref{barbarian:raw-strength}{힘의 대가}}
+			
+			\entry{광전사가 [분노]를 활성화한 상태에서 무기를 던져 일직선상의 대상들에게 피해를 준다. 이는 기민으로 회피가 가능하다. 이 투척은 사격 판정이 아닌 전투 판정으로 공격한다.}
+		\end{story}
+		
+		\begin{story}{피에 굶주림}{[클래스:광전사][심화]\hyperlink{celesteela}{ⓣ}}
+			\pre{\storyref{barbarian:rage}{나, 화났다!}, \storyref{barbarian:raw-strength}{힘의 대가}}
+			
+			\entry{광전사가 잃은 체력 10당 광전사의 기본 공격 피해량이 1 증가한다.}
+		\end{story}
 \end{document}
