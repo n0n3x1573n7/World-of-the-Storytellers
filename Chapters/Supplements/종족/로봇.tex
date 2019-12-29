@@ -33,25 +33,24 @@
 		\cost{20}
 	\end{story}
 	
-	\subsection{로봇 심화 이야기}
-	
-	\begin{story}{기계 모듈}{[종족: 로봇][심화]}
-		\pre{\storyref{humanoid:iron-body}{철로 만들어진 몸체}}
+	\subsubsection{로봇 심화 이야기}
+		\begin{story}{기계 모듈}{[종족: 로봇][심화]}
+			\pre{\storyref{humanoid:iron-body}{철로 만들어진 몸체}}
+			
+			\entry{매 씬이 시작할 때, 물리적 스탯\footnote{기본 스탯을 기준으로 기민, 근력, 제작, 운전, 전투, 사격} 중 하나에 +1을 하고, 다른 하나에 -1을 할 수 있다. 이로 인해서 최대 체력이 변하지는 않는다.}
+			
+			\entry{\storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거가 발동되어 있는 동안, 모듈의 작동이 정지되어 스탯 변화가 초기화된다.}
+			
+			\cost{15}
+		\end{story}
 		
-		\entry{매 씬이 시작할 때, 물리적 스탯\footnote{기본 스탯을 기준으로 기민, 근력, 제작, 운전, 전투, 사격} 중 하나에 +1을 하고, 다른 하나에 -1을 할 수 있다. 이로 인해서 최대 체력이 변하지는 않는다.}
-		
-		\entry{\storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거가 발동되어 있는 동안, 모듈의 작동이 정지되어 스탯 변화가 초기화된다.}
-		
-		\cost{15}
-	\end{story}
-	
-	\begin{story}{자가 수리}{[종족: 로봇][심화]}
-		\pre{\storyref{humanoid:iron-body}{철로 만들어진 몸체}}
-		
-		\entry{전투 씬에서, 매 턴이 시작할 때, 최대 체력의 20\%에 해당하는 양의 체력을 회복한다.}
-		
-		\entry{\storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거가 발동되어 있는 동안, 최대 체력의 10\%로 회복량이 감소한다. 이 회복으로 \storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거의 발동이 취소되지 않으며, 외부 요인으로 인한 회복으로만 트리거의 발동을 취소할 수 있다.}
-		
-		\cost{38\footnote{최대 체력에 20이 추가로 주어지고, 기본 최대 체력이 10 주어지며, 근력을 0 또는 1 올렸다고 가정했을 때, 최대 체력은 30\textasciitilde40이 됩니다. 이 경우의 회복량은 6\textasciitilde8으로, 평균치인 7 회복을 가정했을 때의 코스트입니다. 최대 체력에 따라 이 코스트를 변경시킬 수 있습니다.}}
-	\end{story}
+		\begin{story}{자가 수리}{[종족: 로봇][심화]}
+			\pre{\storyref{humanoid:iron-body}{철로 만들어진 몸체}}
+			
+			\entry{전투 씬에서, 매 턴이 시작할 때, 최대 체력의 20\%에 해당하는 양의 체력을 회복한다.}
+			
+			\entry{\storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거가 발동되어 있는 동안, 최대 체력의 10\%로 회복량이 감소한다. 이 회복으로 \storyref{humanoid:iron-body}{철로 만들어진 몸체}의 공포증 트리거의 발동이 취소되지 않으며, 외부 요인으로 인한 회복으로만 트리거의 발동을 취소할 수 있다.}
+			
+			\cost{38\footnote{최대 체력에 20이 추가로 주어지고, 기본 최대 체력이 10 주어지며, 근력을 0 또는 1 올렸다고 가정했을 때, 최대 체력은 30\textasciitilde40이 됩니다. 이 경우의 회복량은 6\textasciitilde8으로, 평균치인 7 회복을 가정했을 때의 코스트입니다. 최대 체력에 따라 이 코스트를 변경시킬 수 있습니다.}}
+		\end{story}
 \end{document}

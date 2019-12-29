@@ -49,22 +49,21 @@
 		\cost{15}
 	\end{story}
 	
-	\subsection{귀신 심화 이야기}
-	
-	\begin{story}{두 개의 영혼}{[종족: 귀신][종족: (대상)][심화]}
-		\pre{\storyref{ghost:possess}{빙의}, \storyref{ghost:ghost-body}{영체}}
-		
-		\entry{\storyref{ghost:possess}{빙의}의 대상이 호의적이고, 귀신과 합의가 되었다면 대상의 신체에 귀신이 공존할 수 있다. 이렇게 된 경우, 귀신과 대상의 개연성 수치가 합쳐져 하나로 취급된다.}
-		
-		\entry{\storyref{ghost:ghost-body}{영체} 수치는 유지되며, 용도는 다음과 같다:
-		\begin{itemize}
-			\item {}[신성] 속성 공격을 받으면 대상의 체력/정신력과 함께 [영체] 수치가 감소된다.
-			\item 대상의 체력/정신력이 감소될 때, 귀신의 [영체] 수치로 피해를 흡수할 수 있다.
-		\end{itemize}
-		귀신의 개연성 수치가 0이 되었을 때 귀신이 소멸되어 사라짐은 동일하다.}
-		
-		\entry{귀신은 더 이상 대상과 별개로 타게팅될 수 없고, 대상을 타게팅하면 귀신은 함께 타게팅 된 것으로 취급하며, 대상이나 귀신이 받은 상태는 둘 모두에게 공유된다.}
-		
-		\cost{20}
-	\end{story}
+	\subsubsection{귀신 심화 이야기}
+		\begin{story}{두 개의 영혼}{[종족: 귀신][종족: (대상)][심화]}
+			\pre{\storyref{ghost:possess}{빙의}, \storyref{ghost:ghost-body}{영체}}
+			
+			\entry{\storyref{ghost:possess}{빙의}의 대상이 호의적이고, 귀신과 합의가 되었다면 대상의 신체에 귀신이 공존할 수 있다. 이렇게 된 경우, 귀신과 대상의 개연성 수치가 합쳐져 하나로 취급된다.}
+			
+			\entry{\storyref{ghost:ghost-body}{영체} 수치는 유지되며, 용도는 다음과 같다:
+			\begin{itemize}
+				\item {}[신성] 속성 공격을 받으면 대상의 체력/정신력과 함께 [영체] 수치가 감소된다.
+				\item 대상의 체력/정신력이 감소될 때, 귀신의 [영체] 수치로 피해를 흡수할 수 있다.
+			\end{itemize}
+			귀신의 개연성 수치가 0이 되었을 때 귀신이 소멸되어 사라짐은 동일하다.}
+			
+			\entry{귀신은 더 이상 대상과 별개로 타게팅될 수 없고, 대상을 타게팅하면 귀신은 함께 타게팅 된 것으로 취급하며, 대상이나 귀신이 받은 상태는 둘 모두에게 공유된다.}
+			
+			\cost{20}
+		\end{story}
 \end{document}

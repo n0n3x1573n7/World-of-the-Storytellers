@@ -60,43 +60,42 @@
 		\cost{10\footnote{전투 씬 또는 비전투 씬에서만 사용할 수 있는 능력이 있기 때문에 두 능력의 코스트(각각 10) 중 높은 쪽을 적용시켰습니다.}}
 	\end{story}
 	
-	\subsection{도박사 심화 이야기}
-	
-	\begin{story}{위협적인 근육}{[클래스: 도박사][심화]}
-		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+	\subsubsection{도박사 심화 이야기}
+		\begin{story}{위협적인 근육}{[클래스: 도박사][심화]}
+			\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
+			
+			\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}에서, 상대가 \textcolor{blue}{[버스트]}인 경우, 해당 수치가 12에서 넘어선 만큼 추가로 피해를 준다.}
+			
+			\entry{\statchange{+}{근력}}
+			
+			\cost{25}
+		\end{story}
 		
-		\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}에서, 상대가 \textcolor{blue}{[버스트]}인 경우, 해당 수치가 12에서 넘어선 만큼 추가로 피해를 준다.}
+		\begin{story}{참을성}{[클래스: 도박사][심화]}
+			\pre{\storyref{gambler:cheating}{밑장빼기}}
+			
+			\entry{\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다. 즉, 상대가 \textcolor{red}{[스페셜]}이고 자신이 10 미만이며 주사위를 굴리지 않겠다고 선언하기 전이라 할지라도 주사위를 더 이상 굴리지 않아도 된다.}
+			
+			\entry{\statchange{+}{인내}}
+			
+			\cost{25}
+		\end{story}
 		
-		\entry{\statchange{+}{근력}}
+		\begin{story}{성공적인 도박사}{[클래스: 도박사][심화]}
+			\pre{\storyref{gambler:all-in}{올인}}
+			
+			\entry{\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다. 즉, 게임 종료시 동점일 때에도 상대에게 [멍해짐: 1턴]을 줄 수 있다.}
+			
+			\entry{\statchange{+}{자본}}
+			
+			\cost{25}
+		\end{story}
 		
-		\cost{25}
-	\end{story}
-	
-	\begin{story}{참을성}{[클래스: 도박사][심화]}
-		\pre{\storyref{gambler:cheating}{밑장빼기}}
-		
-		\entry{\storyref{gambler:cheating}{밑장빼기}의 기피증을 무시한다. 즉, 상대가 \textcolor{red}{[스페셜]}이고 자신이 10 미만이며 주사위를 굴리지 않겠다고 선언하기 전이라 할지라도 주사위를 더 이상 굴리지 않아도 된다.}
-		
-		\entry{\statchange{+}{인내}}
-		
-		\cost{25}
-	\end{story}
-	
-	\begin{story}{성공적인 도박사}{[클래스: 도박사][심화]}
-		\pre{\storyref{gambler:all-in}{올인}}
-		
-		\entry{\storyref{gambler:all-in}{올인}을 게임 종료시 동점일때에도 발동시킬 수 있다. 즉, 게임 종료시 동점일 때에도 상대에게 [멍해짐: 1턴]을 줄 수 있다.}
-		
-		\entry{\statchange{+}{자본}}
-		
-		\cost{25}
-	\end{story}
-	
-	\begin{story}{카지노의 VIP 고객}{[클래스: 도박사][심화]}
-		\entry{인맥 판정에 자본 스탯을 보너스로 받아 판정한다.}
-		
-		\entry{\statchange{+}{인맥}}
-		
-		\cost{25}
-	\end{story}
+		\begin{story}{카지노의 VIP 고객}{[클래스: 도박사][심화]}
+			\entry{인맥 판정에 자본 스탯을 보너스로 받아 판정한다.}
+			
+			\entry{\statchange{+}{인맥}}
+			
+			\cost{25}
+		\end{story}
 \end{document}
