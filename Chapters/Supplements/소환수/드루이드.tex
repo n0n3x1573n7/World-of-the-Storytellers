@@ -1,12 +1,63 @@
 \documentclass{report}
 
 \begin{document}
-	\begin{story}{}{[클래스:드루이드]\hyperlink{celesteela}{ⓣ}}
+	\world{`우리는 언제나 약했다'}
+	
+	원소와 식물의 힘을 사용하는 자연 드루이드와, 동물로 변하여 힘을 사용하는 영물 드루이드 두 가지 중 하나를 선택하여 육성할 수 있는 하이브리드형 클래스입니다.
+	
+	\begin{story}[druid:choice]{현명한 선택}{[클래스:드루이드]\hyperlink{celesteela}{ⓣ}}
+		\pre{\storyref{druid:choice:nature}{자연 드루이드}와 \storyref{druid:choice:transform}{영물 드루이드} 중 한가지를 선택한다.}
 		
+		\entry{\begin{story}[druid:choice:nature]{자연 드루이드}{[클래스:드루이드][현명한 선택]\hyperlink{celesteela}{ⓣ}}
+			\entry[\hline]{다양한 종류의 자연 마법을 사용할 수 있다. 자연 마법의 기능과 개연성 코스트에 대해서는 마스터와 상의 후 결정한다.\footnote{드루이드의 마법 사용의 메커니즘은 자연과의 대화이기에, \storyref{magic:focus}{집중}형 마법을 사용하는 것을 권고드립니다.}}
+		\end{story}}
+		
+		\entry[\hline]{\begin{story}[druid:choice:transform]{영물 드루이드}{[클래스:드루이드][현명한 선택]\hyperlink{celesteela}{ⓣ}}
+				\pre{자신이 변신하게 될 동물을 고를 수 있다. 이는 이야기꾼의 세계관에서 상상의 동물이 아닌 모든 동물 중 선택할 수 있다.}
+				
+				\entry{24시간에 4시간동안, 선택한 동물으로 변신하고, 원래 형태로 되돌아올 수 있다. 전투 중 동물형 또는 원래 형태로 변신하기 위해서는 한 턴이 소모된다. 변신시, 의복과 소지품은 안전하게 수납되며, 원래 형태로 되돌아오면 다시 자동으로 착용되고 주어진다.}
+				
+				\entry{근력/기민/전투/은신 중 두 가지를 자신이 선택한 동물에 따라\footnote{예를 들어, 다람쥐 영물 드루이드가 근력과 전투를 얻기에는 어색할 수 있습니다.} 정한다. 변신한 동안, ``\statchange{+}{인식, (선택한 두 가지 스탯)}"을 얻는다.}
+				
+				\entry{동물 변신 중에는 변신한 종족의 다른 개체들과는 소통이 가능하나, 다른 종족과는 의사소통이 불가능하다.}
+				
+				\cost{30}
+		\end{story}}
+	\end{story}
+	
+	\begin{story}[druid:forest-defender]{숲의 수호자}{[클래스:드루이드][공포]\hyperlink{celesteela}{ⓣ}}
+		\triggertrauma{공포}{타자가 자연을 파괴하는 것을 목격한다.}{의지 판정을 한다. 0 미만이 나온다면, 자신이 할 수 있는 가장 강한 공격을 대상에게 반드시 가해야 한다.}
+		
+		\entry{드루이드는 자연의 생물들의 목소리를 단편적인 단어로서 받아들일 수 있다.}
+		
+		\cost{5}
 	\end{story}
 	
 	\subsubsection{드루이드 심화 이야기}
-		\begin{story}{}{[클래스:드루이드][심화]\hyperlink{celesteela}{ⓣ}}
+		\begin{story}{숲의 친구들}{[클래스:드루이드][심화]}
+			\pre{\storyref{druid:choice}{현명한 선택}, \storyref{druid:forest-defender}{숲의 수호자}}
+			
+			\entry{\storyref{druid:choice}{현명한 선택}의 결과로 숲의 친구를 사귀는 방법이 달라진다.}
+			
+			\entry{\begin{story}{자연의 영}{[클래스:드루이드][심화][숲의 친구들]}
+				\pre{\storyref{druid:choice:nature}{자연 드루이드}, 영체의 형태가 될 동물을 정한다.}
+				
+				\flavour{자연과 소통하여 자연의 영을 동물 형태로 불러내어 부릴 수 있다.}
+				
+				\entry{물리적인 효과에 면역인 영체 소환수다.}
+				
+				\entry{드루이드가 마법을 시전할 때, 자신의 위치 대신 소환수의 위치에서 시전한 것으로 취급할 수 있다.}
+				
+				\cost{20}
+			\end{story}}
+			
+			\entry[\hline]{\begin{story}{자연과 소통}{[클래스:드루이드][심화][숲의 친구들]}
+				\pre{\storyref{druid:choice:transform}{영물 드루이드}, 친구가 될 동물을 정한다.}
+				
+				\entry{물리적으로 영향을 줄 수 있는 동물 소환수. \storyref{summon}{소환수} 생성 방법에 따라 소환수를 만든다. 이 소환수는 드루이드를 계속 따라다니며, 디스폰이 불가능하다. 소환수 사망시, 이야기꾼과 동일하게 취급한다.}
+				
+				\entry[\hline]{소환수와 드루이드는 항상 대화할 수 있고, 서로를 이해할 수 있다.}
+			\end{story}}
 			
 		\end{story}
 \end{document}
