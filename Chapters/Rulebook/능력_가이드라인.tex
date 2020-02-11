@@ -19,7 +19,6 @@
 		\begin{itemize}
 			\item \textbf{직접 피해(Direct Damage)}: 피해량 1이 증가할때마다 개연성 비용 3이 추가됩니다.
 			\item \textbf{지속 피해(Damage over Time)}: 턴당 피해량이 1 증가할때마다 개연성 비용 2가 추가됩니다. 지속시간 1턴마다 개연성 비용 2가 추가됩니다. 단, 최대 줄 수 있는 총 피해량의 세 배보다 이 코스트가 적다면 최대로 줄 수 있는 총 피해량의 세 배의 코스트를 가집니다.
-			\item \textbf{거리에 따른 피해량 감소(Damage Falloff)}: 한 구역당 감소되는 피해량이 1 증가할때마다 개연성 비용 1이 감소합니다.
 		\end{itemize}
 		
 		\item 회복/방지
@@ -29,6 +28,21 @@
 			\item \textbf{지속 회복(Healing over time)}: 턴당 회복량이 1 증가할때마다 개연성 비용 2가 추가됩니다. 지속시간 1턴마다 개연성 비용 2가 추가됩니다. 5턴 이상은 추가되지 않습니다.
 		\end{itemize}
 		
+		\item 사거리
+		\begin{itemize}
+			\item 아래의 내용을 계산할 때, 구역의 배치를 한 변이 10m인 무한 격자형 구역으로 생각합니다.
+			\item \textbf{사거리(Ranged)}: 최대 사거리까지 떨어진 구역 수당 개연성 비용 1이 증가합니다. 5 이상으로 증가하지 않습니다.
+			\item \textbf{범위(Area of Effect)}: 범위에 포함되는 구역당 개연성 비용 2가 증가합니다. 단, 아군 피해(Friendly Fire) 혹은 적군 회복 등 의도치 않은 결과를 불러올 수 있는 능력은 이 효과를 받지 않습니다.
+			\item \textbf{회피 가능성(Dodgeability)}
+				\begin{itemize}
+					\item \textbf{조준(Aim)}: 조준이 필요하다면 개연성 비용 4가 감소합니다.
+					\item \textbf{경감 가능(Reducable)}: 피해의 경감이 가능하다면 개연성 비용 2가 감소합니다.
+					\item \textbf{회피 가능(Dodgeable)}: 회피가 가능하다면 개연성 비용 4가 감소합니다.
+					\item \textbf{대상 지정(Targeted)/회피 불가(Undodgeable)}: 조준이 불필요하며 회피가 불가능하다면 개연성 비용 3이 증가합니다.
+				\end{itemize}
+			\item \textbf{거리에 따른 피해량 감소(Damage Falloff)}: 한 구역당 감소되는 피해량이 1 증가할때마다 개연성 비용 1이 감소합니다.
+		\end{itemize}
+		
 		\item 사용 빈도
 		\begin{itemize}
 			\item \textbf{자원(Resource)}: 자원을 사용하는 경우 개연성 비용 3이 감소합니다. 추가로, 자원이 자동으로 충전되지 않는 등 자원을 찾기 어렵다면 개연성 비용 2가 감소합니다.
@@ -36,7 +50,8 @@
 			\item \textbf{조건(Condition)}: 조건의 달성 수준에 따라 개연성 비용 1\textasciitilde10이 감소합니다.
 			\item \textbf{준비 시간(Cooldown)}: 기술의 준비 시간 1턴당 개연성 비용 1이 감소합니다.
 			\item \textbf{충전(Charge time)}: 기술의 충전 시간 1턴당 개연성 비용 1이 감소합니다. 만약 충전 시간동안 다른 행동에 제약을 받는다면, 1씩이 추가로 감소합니다.
-			\item \textbf{중첩 사용과 다중 사용(Multiple usage)}: 지속 효과형 능력에만 적용됩니다. 한 대상에게 중첩 사용이 가능하다면 개연성 비용 5가 추가됩니다. 여러 대상에게 동시에 다중 사용이 가능하다면 개연성 비용 5가 추가됩니다.
+			\item \textbf{다중 사용(Multiple Usage)}: 한 턴에 여러 번 사용 가능하다면, 기본 1회에서 추가되는 횟수당 개연성 비용 2가 추가됩니다.
+			\item \textbf{중첩 사용과 복수 사용(Cumulative/Parallel Usage)}: 지속 효과형 능력에만 적용됩니다. 한 대상에게 중첩 사용이 가능하다면 개연성 비용 3이 추가됩니다. 여러 대상에게 동시에 다중 사용이 가능하다면 개연성 비용 3이 추가됩니다.
 		\end{itemize}
 		
 		\item 효과
@@ -48,13 +63,6 @@
 				\item 상태가 횟수 제한이 있는 경우, 5회에서 모자란 횟수당 1의 개연성 비용을 감합니다. 이 이상의 횟수인 경우 횟수 제한이 있는 것으로 취급하지 않습니다.
 				\item 상태가 턴수 제한이 있는 경우, 4턴에서 모자란 턴수당 1의 개연성 비용을 감합니다. 이 이상의 턴수인 경우 턴수 제한이 있는 것으로 취급하지 않습니다.
 			\end{itemize}
-		\end{itemize}
-		
-		\item 정확도
-		\begin{itemize}
-			\item \textbf{조준(Aim)}: 개연성 비용 4가 감소합니다.
-			\item \textbf{대상 지정(Targeted)}: 개연성 비용 3이 증가합니다.
-			\item \textbf{범위(Area of Effect)}: 한 변이 10m인 무한 격자형 구역으로 생각했을 때, 범위에 포함되는 구역당 개연성 비용 2가 증가합니다. 단, 아군 피해(Friendly Fire) 혹은 적군 회복 등 의도치 않은 결과를 불러올 수 있는 능력은 이 효과를 받지 않습니다.
 		\end{itemize}
 		
 		\item 트라우마
