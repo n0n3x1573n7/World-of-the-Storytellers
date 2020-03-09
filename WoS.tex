@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[11pt]{report}
 %Use \documentclass[12pt]{book} to printout and make it into a book
 \renewcommand{\numberline}[1]{#1~}
 
@@ -8,7 +8,7 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{1.4.2}
+\newcommand{\version}{2.0.0}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
@@ -27,6 +27,8 @@
 
 \usepackage{fontspec}
 \setmainfont[ItalicFont={*},ItalicFeatures={FakeSlant=.167}]{NanumBarunGothic}
+\newfontfamily{\storyfont}[Scale=1.1]{SDMiSaeng.ttf}
+
 \usepackage[hidelinks,unicode,bookmarks=true]{hyperref}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[round]{natbib}
@@ -53,7 +55,7 @@
 %\usepackage{lipsum}
 \usepackage{standalone}
 \usepackage{enumitem}
-\setlist{nolistsep}%{topsep=0pt,itemsep=0pt,parsep=0pt,before=\vspace{0mm},after=\vspace{0mm}}
+\setlist{nosep}%{topsep=0pt,itemsep=0pt,parsep=0pt,before=\vspace{0mm},after=\vspace{0mm}}
 
 \usepackage{etoolbox}
 \AfterEndEnvironment{enumerate}{\vskip-\lastskip}
@@ -110,49 +112,48 @@ version={4.0},
 \newenvironment{tightcenter}{%
 	\setlength\topsep{0pt}%
 	\setlength\parskip{0pt}%
-	\par\centering}{\par\noindent\ignorespacesafterend}
+	\par\centering}{\par\smallskip\noindent\ignorespacesafterend}
+
+\usepackage{colortbl}
+\usepackage[breakable]{tcolorbox}
+
+\makeatletter
+\tcbset{
+	tabular/.style={
+		boxsep=\z@,top=\z@,bottom=\z@,leftupper=\z@,rightupper=\z@,
+		toptitle=1mm,bottomtitle=1mm,boxrule=0.5mm,
+		before upper={\def\arraystretch{1.1}\tcb@hack@currenvir\tabular{#1}},
+		after upper=\endtabular\arrayrulecolor{black}},
+}
+\makeatother
+
+%environment for WoT(lite) stories, appears on index
+\newenvironment{lite}[2][]
+{ \ignorespaces \par
+	\noindent
+	\begin{tightcenter}
+		\begin{tcolorbox}[standard jigsaw, opacityback=0, colframe=black!75!black, width=\linewidth, breakable, tabular={|p{\widthratio\linewidth}|}, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}} \index{#2}}]
+		}
+		{
+		\end{tcolorbox}
+	\end{tightcenter}
+	\par
+}
 
 %environment for normal stories, appears on index
 \newenvironment{story}[3][]
-{ \ignorespaces \smallbreak \par
+{ \ignorespaces \par
 	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{tightcenter}
-			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\tabular{|p{\widthratio\linewidth}|}
-				\hline
-				\textbf{속성}: #3
-				\index{#2}
-				\\\hline
-				\ignorespaces\unskip
-				}
-				{
-			\endtabular
-		\end{tightcenter}
-	\end{minipage}
+	\begin{tightcenter}
+		\begin{tcolorbox}[standard jigsaw, opacityback=0, colframe=black!75!black, width=\linewidth, breakable, tabular={|p{\widthratio\linewidth}|}, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}} \index{#2}}]
+			\textbf{속성}: #3
+			\\\hline
+			\ignorespaces\unskip
+			}
+			{
+		\end{tcolorbox}
+	\end{tightcenter}
 	\par
-	\smallbreak
-}
-
-%environment for spoiling stories(i.e. scenarios), does not appear on index
-\newenvironment{spoiler}[3][]
-{ \ignorespaces \smallbreak \par
-	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{tightcenter}
-			{\large \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}}\\[1ex]
-			\tabular{|p{\widthratio\linewidth}|}
-				\hline
-				\textbf{속성}: #3
-				\\\hline
-				\ignorespaces\unskip
-				}
-				{
-			\endtabular
-		\end{tightcenter}
-	\end{minipage}
-	\par
-	\smallbreak
 }
 
 \newcommand{\storyref}[2]{\hyperlink{#1}{\textnormal{[#2]}}}
@@ -179,6 +180,26 @@ version={4.0},
 	\ignorespaces#2\ignorespaces\unskip\\#1
 }
 
+\newcommand{\subject}[2][\basesepline]
+{
+	\entry[#1]{\makecell{\centering \textbf{#2}}}
+}
+
+\newcommand{\positive}[2][\basesepline]
+{
+	\entry[#1]{\textbf{긍정적}: #2}
+}
+
+\newcommand{\negative}[2][\basesepline]
+{
+	\entry[#1]{\textbf{부정적}: #2}
+}
+
+\newcommand{\neutral}[2][\basesepline]
+{
+	\entry[#1]{\textbf{중립적}: #2}
+}
+
 \newcommand{\pre}[2][\basesepline]
 {
 	\entry[#1]{\textbf{필요 조건}: \textit{#2}}
@@ -199,13 +220,12 @@ version={4.0},
 	\entry[#1]{\textbf{트리거}\ifthenelse{\isempty{#2}}{}{\textbf{(#2)}}: #3\\\textbf{효과}: #4}
 }
 
-\newfontfamily\storyfont{Nanum Pen Script}
 \newcommand{\flavour}[2][\basesepline]
 {
-	\entry[#1]{{\storyfont\large#2}}
+	\entry[#1]{{\storyfont\Large#2}}
 }
 
-\newcommand{\world}[1]{{\storyfont \large #1 \par}}
+\newcommand{\world}[1]{{\storyfont\Large#1\par}}
 
 \setlength\parindent{0pt}
 
@@ -245,15 +265,13 @@ version={4.0},
 	
 	\setcounter{tocdepth}{-1}
 	
-\iffalse
-	\chapter*{서론}
-		\input{./Chapters/서론.tex}
-\fi
-	
 	\tableofcontents
 	
-	\part{룰북}
-		\input{./Chapters/Rules.tex}
+	\part{이야기꾼의 세계 \\ World of the Storytellers}
+		\input{./Chapters/Main.tex}
+	
+	\part{이야기의 방랑자들 \\ Wanderers of the Tales}
+		\input{./Chapters/Lite.tex}
 	
 	\part{서플리먼트: 예시 이야기들}
 		\input{./Chapters/Supplements.tex}
