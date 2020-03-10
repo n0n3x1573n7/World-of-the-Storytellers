@@ -8,7 +8,7 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{2.0.0}
+\newcommand{\version}{2.0.1}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
@@ -65,9 +65,7 @@
 \usepackage{ulem}
 \usepackage{bm}
 \usepackage{tikz}
-\usepackage{tabularx}
 \usepackage{mdframed}
-\usepackage{etoolbox}
 
 \usepackage[
 type={CC},
@@ -102,9 +100,12 @@ version={4.0},
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
 \makeatother
 
-\setlength\dashlinedash{0.5pt}
+\usepackage{colortbl}
+\arrayrulecolor{black}
+
+\setlength\dashlinedash{0.6pt}
 \setlength\dashlinegap{2.0pt}
-\setlength\arrayrulewidth{0.3pt}
+\setlength\arrayrulewidth{0.6pt}
 \newcommand{\basesepline}{\hdashline}
 
 \newcommand{\widthratio}{0.975}
@@ -114,8 +115,8 @@ version={4.0},
 	\setlength\parskip{0pt}%
 	\par\centering}{\par\smallskip\noindent\ignorespacesafterend}
 
-\usepackage{colortbl}
 \usepackage[breakable]{tcolorbox}
+\usepackage{tabularx}
 
 \makeatletter
 \tcbset{
