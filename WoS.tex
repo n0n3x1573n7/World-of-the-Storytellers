@@ -8,7 +8,7 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{2.0.5}
+\newcommand{\version}{2.0.6}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
@@ -100,13 +100,9 @@ version={4.0},
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
 \makeatother
 
-\usepackage{colortbl}
-\arrayrulecolor{black}
-
-\setlength\dashlinedash{0.6pt}
+\setlength\dashlinedash{0.5pt}
 \setlength\dashlinegap{2.0pt}
-\setlength\arrayrulewidth{0.6pt}
-\newcommand{\basesepline}{\hdashline}
+\setlength\arrayrulewidth{0.3pt}
 
 \newcommand{\widthratio}{0.975}
 
@@ -115,25 +111,20 @@ version={4.0},
 	\setlength\parskip{0pt}%
 	\par\centering}{\par\smallskip\noindent\ignorespacesafterend}
 
-\usepackage[breakable]{tcolorbox}
+\usepackage{colortbl}
+\usepackage[breakable, skins]{tcolorbox}
+\usepackage{changepage}
 \usepackage{tabularx}
 
-\makeatletter
-\tcbset{
-	tabular/.style={
-		boxsep=\z@,top=\z@,bottom=\z@,leftupper=\z@,rightupper=\z@,
-		toptitle=1mm,bottomtitle=1mm,boxrule=0.5mm,
-		before upper={\def\arraystretch{1.1}\tcb@hack@currenvir\tabular{#1}},
-		after upper=\endtabular\arrayrulecolor{black}},
-}
-\makeatother
+\newcommand{\basesepline}{\tcbline*}
+\newcommand{\solidsepline}{\vspace*{\dimexpr-\parskip-\baselineskip+.5\medskipamount}\noindent\rule{\linewidth}{0.2pt}\par\vspace*{\dimexpr-\parskip-\baselineskip+\bigskipamount}}
 
 %environment for WoT(lite) stories, appears on index
 \newenvironment{lite}[2][]
 { \ignorespaces \par
 	\noindent
 	\begin{tightcenter}
-		\begin{tcolorbox}[standard jigsaw, opacityback=0, colframe=black!75!black, width=\linewidth, breakable, tabular={|p{\widthratio\linewidth}|}, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}} \index{#2}}]
+		\begin{tcolorbox}[standard jigsaw, boxsep=0pt,left=0pt,right=0pt, opacityback=0, colframe=black!75!black, width=\widthratio\linewidth, breakable, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}\index{#2}}]
 		}
 		{
 		\end{tcolorbox}
@@ -146,12 +137,13 @@ version={4.0},
 { \ignorespaces \par
 	\noindent
 	\begin{tightcenter}
-		\begin{tcolorbox}[standard jigsaw, opacityback=0, colframe=black!75!black, width=\linewidth, breakable, tabular={|p{\widthratio\linewidth}|}, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}} \index{#2}}]
-			\textbf{속성}: #3
-			\\\hline
-			\ignorespaces\unskip
-			}
-			{
+		\begin{tcolorbox}[standard jigsaw, boxsep=0pt,left=0pt,right=0pt, opacityback=0, colframe=black!75!black, width=\widthratio\linewidth, breakable, title={\large \centering \ifthenelse{\isempty{#1}}{\textbf{[#2]}}{\hypertarget{#1}{\textbf{[#2]}}}\index{#2}}]
+			\begin{adjustwidth}{5pt}{5pt}
+				\textbf{속성}: #3
+			\end{adjustwidth}
+			\solidsepline
+		}
+		{
 		\end{tcolorbox}
 	\end{tightcenter}
 	\par
@@ -163,11 +155,11 @@ version={4.0},
 
 \newenvironment{faq}[1]
 {
-		\refstepcounter{qnactr}
-		\par\smallbreak
-		\textbf{\large Q\theqnactr. #1}
-		\newline\rmfamily
-		A\theqnactr.
+	\refstepcounter{qnactr}
+	\par\smallbreak
+	\textbf{\large Q\theqnactr. #1}
+	\newline\rmfamily
+	A\theqnactr.
 }
 {\par\smallbreak}
 
@@ -178,12 +170,15 @@ version={4.0},
 
 \newcommand{\entry}[2][\basesepline]
 {
-	\ignorespaces#2\ignorespaces\unskip\\#1
+	\begin{adjustwidth}{5pt}{5pt}
+		\ignorespaces#2\ignorespaces\unskip
+	\end{adjustwidth}
+	#1
 }
 
 \newcommand{\subject}[2][\basesepline]
 {
-	\entry[#1]{\makecell{\centering \textbf{#2}}}
+	{\entry[#1]{\centering \textbf{#2}}}
 }
 
 \newcommand{\positive}[2][\basesepline]
@@ -206,7 +201,7 @@ version={4.0},
 	\entry[#1]{\textbf{필요 조건}: \textit{#2}}
 }
 
-\newcommand{\cost}[2][\hline]
+\newcommand{\cost}[2][\basesepline]
 {
 	\entry[#1]{\textbf{개연성 코스트}: #2}
 }
@@ -223,7 +218,7 @@ version={4.0},
 
 \newcommand{\flavour}[2][\basesepline]
 {
-	\entry[#1]{{\storyfont\Large#2}}
+	\entry[#1]{{\world{#2}}}
 }
 
 \newcommand{\world}[1]{{\storyfont\Large#1\par}}
