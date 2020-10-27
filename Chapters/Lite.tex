@@ -1,11 +1,14 @@
 \documentclass{report}
 
 \begin{document}
-	\parttoc
+	\ifprintout\else
+		\parttoc
+	\fi
 	
 	\chapter{서문}
 	\input{./Chapters/Lite/서문.tex}
 	
+	\hypertarget{lite-character-creation}{}
 	\chapter{이야기꾼 만들기}
 	\input{./Chapters/Lite/이야기꾼_만들기.tex}
 	
@@ -13,6 +16,7 @@
 	\chapter{캐릭터 시트}
 	\input{./Chapters/Lite/시트.tex}
 	
+	\hypertarget{lite-roles}{}
 	\chapter{이야기 속에서의 역할과 이야기}
 	\input{./Chapters/Lite/이야기_속에서의_역할과_이야기.tex}
 	

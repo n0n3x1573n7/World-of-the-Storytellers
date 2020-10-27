@@ -1,7 +1,9 @@
 \documentclass{report}
 
 \begin{document}
-	\parttoc
+	\ifprintout\else
+		\parttoc
+	\fi
 	
 	\chapter{서문}
 		\input{./Chapters/WoS/서문.tex}

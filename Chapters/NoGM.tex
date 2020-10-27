@@ -1,0 +1,27 @@
+\documentclass{report}
+
+\begin{document}
+	\ifprintout\else
+		\parttoc
+	\fi
+	
+	\chapter{서문}
+		\input{./Chapters/NoGM/서문.tex}
+	
+	\chapter{서사의 진행}
+		\input{./Chapters/NoGM/서사의_진행.tex}
+	
+	\hypertarget{nogm-diceroll}{}
+	\chapter{판정}
+		\input{./Chapters/NoGM/판정.tex}
+		
+	\chapter{선택 규칙: 메타}
+		\input{./Chapters/NoGM/메타.tex}
+	
+	\hypertarget{nogm-socialite}{}
+	\chapter{선택 규칙: 이야기의 사교도들}
+		\input{./Chapters/NoGM/이야기의_사교도들.tex}
+	
+	\chapter{에필로그}
+		\input{./Chapters/NoGM/에필로그.tex}
+\end{document}

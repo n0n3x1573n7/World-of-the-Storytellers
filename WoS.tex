@@ -1,5 +1,12 @@
-\documentclass[11pt]{report}
-%Use \documentclass[12pt]{book} to printout and make it into a book
+\newif\ifprintout
+\printoutfalse
+
+\ifprintout
+	\documentclass[8pt,b5paper]{book}
+\else
+	\documentclass[11pt]{report}
+\fi
+
 \renewcommand{\numberline}[1]{#1~}
 
 \newif\ifDLC
@@ -8,7 +15,7 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{2.0.7}
+\newcommand{\version}{3.0.0}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
@@ -29,7 +36,7 @@
 \setmainfont[ItalicFont={*},ItalicFeatures={FakeSlant=.167}]{NanumBarunGothic}
 \newfontfamily{\storyfont}[Scale=1.1]{SDMiSaeng.ttf}
 
-\usepackage[hidelinks,unicode,bookmarks=true]{hyperref}
+\usepackage[hidelinks,unicode,bookmarks=true,breaklinks=true]{hyperref}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[round]{natbib}
@@ -37,6 +44,7 @@
 	citecolor=Red,
 	linkcolor=Green,
 	urlcolor=Blue}
+\usepackage{xurl}
 
 \usepackage[nobottomtitles*]{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
@@ -222,7 +230,7 @@ version={4.0},
 	\entry[#1]{{\world{#2}}}
 }
 
-\newcommand{\world}[1]{{\storyfont\Large#1\par}}
+\newcommand{\world}[1]{{\linespread{0.9}\storyfont\Large#1\par}}
 
 \setlength\parindent{0pt}
 
@@ -241,26 +249,50 @@ version={4.0},
 	\lfoot{\textcolor{red}{DLC ENABLED}}
 \fi
 
+\let\oldhypertarget\hypertarget
+\renewcommand{\hypertarget}[2]{\oldhypertarget{#1}{\label{#1}#2}}
+
+\ifprintout
+	\let\oldhyperlink\hyperlink
+	\let\oldhref\href
+	
+	\renewcommand{\hyperlink}[2]{#2(\pageref{#1}쪽)}
+	\renewcommand{\href}[2]{#2(\url{#1})}
+\fi
+
 \title{
 	World of the Storytellers\\
 	이야기꾼의 세계\\
 	\large version \version\\
-	Last Update: \today
+	\ifprintout
+		Printout Version\\
+	\else
+		Last Update: \today
+	\fi
 	\ifDLC{\\ \textcolor{red}{DLC ENABLED}}\fi
 }
 
-\author{None(\href{https://www.twitter.com/n0n3x1573n7_WS}{@n0n3x1573n7\_WS})}
+\author{
+	\ifprintout
+		None(@n0n3x1573n7\_WS)
+	\else
+		None(\href{https://www.twitter.com/n0n3x1573n7_WS}{@n0n3x1573n7\_WS})
+	\fi}
 
 \date{}
 
 \begin{document}
 	%original: https://docs.google.com/document/d/1CewodUdP8zI3f81ktz6iiZYG4b1cFzARG2g1HFeswzg/edit
 	\maketitle
-
-	\vspace*{\fill}
-	{\doclicenseThis}
 	
-	\setcounter{tocdepth}{-1}
+%	\chapter*{들어가며}
+%		\input{./Chapters/Prologue.tex}
+	
+	\ifprintout
+		\setcounter{tocdepth}{0}
+	\else
+		\setcounter{tocdepth}{-1}
+	\fi
 	
 	\tableofcontents
 	
@@ -270,19 +302,50 @@ version={4.0},
 	\part{이야기의 방랑자들 \\ Wanderers of the Tales}
 		\input{./Chapters/Lite.tex}
 	
+	\part{이야기의 생성자들 \\ Wrights of the Plots}
+		\input{./Chapters/NoGM.tex}
+	
+	\ifprintout\else
 	\part{서플리먼트: 예시 이야기들}
 		\input{./Chapters/Supplements.tex}
+	\fi
 	
+	\ifprintout\else
 	\part{정리}
+	\fi
+%		\chapter*{마치며}
+%			\input{./Chapters/Epilogue.tex}
+		
+		\ifprintout\else
 		\chapter*{FAQ}
 			\input{./Chapters/FAQ.tex}
+		\fi
 		
+		\chapter*{라이센스}
+			 \input{./Chapters/License.tex}
+		
+		\ifprintout\else
 		\chapter*{패치 노트}
 			\input{./Chapters/패치노트.tex}
 		
 			\printindex
+		\fi
 	
 	\vspace*{\fill}
+	
+	\ifprintout
+		\let\hyperlink\oldhyperlink
+		\let\href\oldhref
+	\fi
+	
 	{\doclicenseThis}
+	
+	\ifprintout
+		\let\oldhyperlink\hyperlink
+		\let\oldhref\href
+		
+		\renewcommand{\hyperlink}[2]{#2(\pageref{#1} 쪽)}
+		\renewcommand{\href}[2]{#2(\url{#1})}
+	\fi
 	
 \end{document}
