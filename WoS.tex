@@ -15,13 +15,15 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{3.1.0}
+\newcommand{\version}{3.1.1}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1, T2A]{fontenc}
+
+\usepackage{afterpage}
 
 \usepackage{imakeidx}
 \indexsetup{othercode=\footnotesize}
@@ -59,7 +61,11 @@
 \usepackage{amssymb}
 %\usepackage{relsize}
 \usepackage{centernot}
-\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+\ifprintout
+	\usepackage{geometry}
+\else
+	\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+\fi
 \usepackage{titling}
 %\usepackage{lipsum}
 \usepackage{standalone}
@@ -281,20 +287,39 @@ version={4.0},
 
 \date{}
 
-\begin{document}
+\begin{document}	
 	%original: https://docs.google.com/document/d/1CewodUdP8zI3f81ktz6iiZYG4b1cFzARG2g1HFeswzg/edit
-	\maketitle
 	
 %	\chapter*{들어가며}
 %		\input{./Chapters/Prologue.tex}
 	
-	\ifprintout
+\ifprintout	
+		\afterpage{%
+			\thispagestyle{empty}
+			\begin{figure*}
+				\centering
+				\includegraphics[width=\linewidth]{./Chapters/WoS-Title.png}
+			\end{figure*}
+			\pagebreak
+		}
+		\maketitle
 		\setcounter{tocdepth}{0}
-	\else
+		\tableofcontents
+		
+\else
+		\afterpage{%
+			\thispagestyle{empty}
+			\begin{figure*}
+				\centering
+				\includegraphics[width=\linewidth]{./Chapters/WoS-Title.png}
+			\end{figure*}
+			\pagebreak
+		}
+		\maketitle
 		\setcounter{tocdepth}{-1}
-	\fi
-	
-	\tableofcontents
+		\tableofcontents
+
+\fi
 	
 	\part{이야기꾼의 세계 \\ World of the Storytellers}
 		\input{./Chapters/Main.tex}
