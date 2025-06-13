@@ -3,7 +3,23 @@
 \begin{document}
 	도박에 죽고 도박에 사는 이들입니다.
 	
-	\begin{story}[gambler:dice_blackjack]{다이스 블랙잭}{[클래스: 도박사]}
+	\subsubsection*{도박사 공통 이야기}
+	
+	\begin{story}[gambler:high_highs_low_lows]{높은 고점, 낮은 저점}{[클래스: 도박사][집착]}
+		\limitedtrauma{집착}{자동으로 성공하는 판정이라 할지라도, 반드시 \storyref{luck:pow-of-luck}{행운의 힘}을 활용한 판정을 진행해야 한다.}
+		
+		\entry{자동으로 성공하는 판정에 \storyref{luck:pow-of-luck}{행운의 힘}을 활용한 판정을 했다면 해당 판정에 +2를 받는다.}
+		
+		\entry{\storyref{luck:pow-of-luck}{행운의 힘}을 활용한 판정에서, 2df를 추가로 굴리고, 판정에 +1을 받을 수 있다. 한 판정에 2번까지 사용할 수 있다.}
+		
+		\entry{\storyref{luck:pow-of-luck}{행운의 힘}을 활용한 판정에 실패할 경우, 1df를 추가로 굴릴 수 있다. 한 판정에 4번까지 사용할 수 있다.}
+		
+		\cost{12}
+	\end{story}
+	
+	\subsubsection*{세부 클래스: 다이스 블랙잭 도박사}
+	
+	\begin{story}[gambler:dice_blackjack]{다이스 블랙잭}{[클래스: 도박사][다이스 블랙잭]}
 		\entry{매 턴 한번, 같은 구역에 있는 이를 하나 지목해, \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 진행할 수 있다:
 		\begin{enumerate}
 			\setlength\itemsep{0.2em}
@@ -28,7 +44,7 @@
 		\cost{20\footnote{주사위 운에 따라, 자신도 상대도 공평하게 피해를 받을 수 있는 능력이기 때문에 일반적인 활용형 능력으로 취급됩니다.}}
 	\end{story}
 	
-	\begin{story}{도박 중독}{[클래스: 도박사][중독]}
+	\begin{story}{도박 중독}{[클래스: 도박사][다이스 블랙잭][중독]}
 		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 		
 		\limitedtrauma{중독}{다른 이에게 피해를 가하고 싶을 때 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 할 수 있다면, 반드시 \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 통해서만 피해를 줄 수 있다.}
@@ -38,7 +54,7 @@
 		\cost{-35}
 	\end{story}
 	
-	\begin{story}[gambler:all-in]{올인}{[클래스: 도박사][집착]}
+	\begin{story}[gambler:all-in]{올인}{[클래스: 도박사][다이스 블랙잭][집착]}
 		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 		
 		\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}의 결과 자신이 \textcolor{red}{[스페셜]}일 때, 즉시 [멍해짐: 1턴] 상태를 주는 것으로 게임으로 인한 피해량 판정 없이 게임을 종료할 수 있다. [멍해짐] 상태를 받은 상대는 다음 자신의 턴에 아무 행동도 할 수 없다.}
@@ -48,7 +64,7 @@
 		\cost{5}
 	\end{story}
 	
-	\begin{story}[gambler:cheating]{밑장빼기}{[클래스: 도박사][기피]}
+	\begin{story}[gambler:cheating]{밑장빼기}{[클래스: 도박사][다이스 블랙잭][기피]}
 		\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 		
 		\entry{전투 씬에서, 세 라운드에 한 번, \storyref{gambler:dice_blackjack}{다이스 블랙잭}을 할때 자신이 \textcolor{blue}{[버스트]}가 난 경우, \textcolor{blue}{[버스트]}를 낸 주사위 굴림을 취소할 수 있다.}
@@ -61,7 +77,7 @@
 	\end{story}
 	
 	\subsubsection*{도박사 심화 이야기}
-		\begin{story}{위협적인 근육}{[클래스: 도박사][심화]}
+		\begin{story}{위협적인 근육}{[클래스: 도박사][다이스 블랙잭][심화]}
 			\pre{\storyref{gambler:dice_blackjack}{다이스 블랙잭}}
 			
 			\entry{\storyref{gambler:dice_blackjack}{다이스 블랙잭}에서, 상대가 \textcolor{blue}{[버스트]}인 경우, 해당 수치가 12에서 넘어선 만큼 추가로 피해를 준다.}

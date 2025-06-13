@@ -1,11 +1,12 @@
+\documentclass[8pt,b5paper]{book}
 \newif\ifprintout
 \printoutfalse
 
-\ifprintout
-	\documentclass[8pt,b5paper]{book}
-\else
-	\documentclass[11pt]{report}
-\fi
+% \ifprintout
+% 	\documentclass[8pt,b5paper]{book}
+% \else
+% 	\documentclass[11pt]{report}
+% \fi
 
 \renewcommand{\numberline}[1]{#1~}
 
@@ -15,7 +16,7 @@
 \newif\iffullchangelog
 \fullchangelogfalse %\fullchangelogtrue or \fullchangelogfalse
 
-\newcommand{\version}{3.1.1}
+\newcommand{\version}{3.1.2}
 
 %\usepackage{kotex}
 \usepackage{CJKutf8}
@@ -35,7 +36,7 @@
 \makeatother
 
 \usepackage{fontspec}
-\setmainfont[ItalicFont={*},ItalicFeatures={FakeSlant=.167}]{NanumBarunGothic}
+\setmainfont[ItalicFont={*},ItalicFeatures={FakeSlant=.167}]{NanumBarunGothic.otf}
 \newfontfamily{\storyfont}[Scale=1.1]{SDMiSaeng.ttf}
 
 \usepackage[hidelinks,unicode,bookmarks=true,breaklinks=true]{hyperref}
